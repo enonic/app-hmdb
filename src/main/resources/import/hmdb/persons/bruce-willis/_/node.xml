@@ -2,7 +2,7 @@
     <id>7c27c93b-cbbf-4a0b-8a54-22d99b83a1e4</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2019-04-09T13:42:58.748Z</timestamp>
+    <timestamp>2020-09-23T12:34:46.577Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -35,17 +35,11 @@
             </allow>
             <deny type="array"/>
         </principal>
-        <principal key="role:system.everyone">
-            <allow type="array">
-                <value>READ</value>
-            </allow>
-            <deny type="array"/>
-        </principal>
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Bruce Willis</string>
-        <string name="type">com.enonic.starter.headless:person</string>
+        <string name="type">com.enonic.app.hmdb:person</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
         <dateTime name="modifiedTime">2018-07-03T06:09:10.193Z</dateTime>
@@ -63,7 +57,7 @@
             <localDate name="dateofbirth">1955-03-19Z</localDate>
         </property-set>
         <property-set name="x">
-            <property-set name="com-enonic-starter-headless">
+            <property-set name="com-enonic-app-hmdb">
                 <property-set name="SoMe">
                     <string name="imdb">https://www.imdb.com/name/nm0000246/</string>
                     <string isNull="true" name="twitter"/>

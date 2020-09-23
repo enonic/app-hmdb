@@ -2,7 +2,7 @@
     <id>a6303a7f-1162-4a99-ba7e-e5659ecaa0ac</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2019-04-09T13:42:59.160Z</timestamp>
+    <timestamp>2020-09-23T12:34:46.799Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -35,17 +35,11 @@
             </allow>
             <deny type="array"/>
         </principal>
-        <principal key="role:system.everyone">
-            <allow type="array">
-                <value>READ</value>
-            </allow>
-            <deny type="array"/>
-        </principal>
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">The Godfather</string>
-        <string name="type">com.enonic.starter.headless:movie</string>
+        <string name="type">com.enonic.app.hmdb:movie</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
         <dateTime name="modifiedTime">2018-07-02T15:16:01.690Z</dateTime>
@@ -72,7 +66,7 @@
             <reference name="director">343c90b1-2186-4755-b6d8-cd552d16fd35</reference>
         </property-set>
         <property-set name="x">
-            <property-set name="com-enonic-starter-headless">
+            <property-set name="com-enonic-app-hmdb">
                 <property-set name="SoMe">
                     <string name="imdb">https://www.imdb.com/title/tt0068646/</string>
                     <string isNull="true" name="twitter"/>

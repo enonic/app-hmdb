@@ -2,7 +2,7 @@
     <id>1300aeec-39d6-466c-af13-43be8f0bf41e</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2019-04-09T13:42:58.778Z</timestamp>
+    <timestamp>2020-09-23T12:34:46.594Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -35,17 +35,11 @@
             </allow>
             <deny type="array"/>
         </principal>
-        <principal key="role:system.everyone">
-            <allow type="array">
-                <value>READ</value>
-            </allow>
-            <deny type="array"/>
-        </principal>
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Uma Thurman</string>
-        <string name="type">com.enonic.starter.headless:person</string>
+        <string name="type">com.enonic.app.hmdb:person</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
         <dateTime name="modifiedTime">2018-07-03T05:58:55.025Z</dateTime>
@@ -63,7 +57,7 @@
             <localDate name="dateofbirth">1970-04-29Z</localDate>
         </property-set>
         <property-set name="x">
-            <property-set name="com-enonic-starter-headless">
+            <property-set name="com-enonic-app-hmdb">
                 <property-set name="SoMe">
                     <string name="imdb">https://www.imdb.com/name/nm0000235/</string>
                     <string isNull="true" name="twitter"/>

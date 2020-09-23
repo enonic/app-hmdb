@@ -13,8 +13,12 @@ app {
 }
 
 dependencies {
+    compile "com.enonic.xp:core-api:${xpVersion}"
     compile "com.enonic.xp:portal-api:${xpVersion}"
     include "com.enonic.xp:lib-websocket:${xpVersion}"
+    include "com.enonic.xp:lib-auth:${xpVersion}"
+    include "com.enonic.xp:lib-project:${xpVersion}"
+    include "com.enonic.xp:lib-cluster:${xpVersion}"
     include "com.enonic.lib:lib-guillotine:4.2.1"
     include "com.enonic.lib:lib-graphql-playground:0.0.1"
 }

@@ -2,7 +2,7 @@
     <id>cbad75b1-7048-46a4-85b1-99b923da139c</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2019-04-09T13:42:58.756Z</timestamp>
+    <timestamp>2020-09-23T12:34:46.582Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -32,12 +32,6 @@
                 <value>PUBLISH</value>
                 <value>READ_PERMISSIONS</value>
                 <value>WRITE_PERMISSIONS</value>
-            </allow>
-            <deny type="array"/>
-        </principal>
-        <principal key="role:system.everyone">
-            <allow type="array">
-                <value>READ</value>
             </allow>
             <deny type="array"/>
         </principal>

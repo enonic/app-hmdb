@@ -2,7 +2,7 @@
     <id>aaed366f-6030-4e33-82e2-f3b0a972b06d</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2019-04-09T13:42:58.946Z</timestamp>
+    <timestamp>2020-09-23T12:34:46.689Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -35,17 +35,11 @@
             </allow>
             <deny type="array"/>
         </principal>
-        <principal key="role:system.everyone">
-            <allow type="array">
-                <value>READ</value>
-            </allow>
-            <deny type="array"/>
-        </principal>
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Marlon Brando</string>
-        <string name="type">com.enonic.starter.headless:person</string>
+        <string name="type">com.enonic.app.hmdb:person</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
         <dateTime name="modifiedTime">2018-07-02T14:37:53.631Z</dateTime>
@@ -64,7 +58,7 @@
             <localDate name="dateofbirth">1924-04-03Z</localDate>
         </property-set>
         <property-set name="x">
-            <property-set name="com-enonic-starter-headless">
+            <property-set name="com-enonic-app-hmdb">
                 <property-set name="SoMe">
                     <string name="imdb">https://www.imdb.com/name/nm0000008/</string>
                     <string isNull="true" name="twitter"/>

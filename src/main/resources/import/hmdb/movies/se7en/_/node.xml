@@ -2,7 +2,7 @@
     <id>1cb3dbf4-31d1-4e8a-816a-8cf891de7ad6</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2019-04-09T13:42:59.013Z</timestamp>
+    <timestamp>2020-09-23T12:34:46.729Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.cm.app">
@@ -35,17 +35,11 @@
             </allow>
             <deny type="array"/>
         </principal>
-        <principal key="role:system.everyone">
-            <allow type="array">
-                <value>READ</value>
-            </allow>
-            <deny type="array"/>
-        </principal>
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
         <string name="displayName">Se7en</string>
-        <string name="type">com.enonic.starter.headless:movie</string>
+        <string name="type">com.enonic.app.hmdb:movie</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
         <dateTime name="modifiedTime">2018-07-03T06:50:45.284Z</dateTime>
@@ -75,7 +69,7 @@
             <string isNull="true" name="website"/>
         </property-set>
         <property-set name="x">
-            <property-set name="com-enonic-starter-headless">
+            <property-set name="com-enonic-app-hmdb">
                 <property-set name="SoMe">
                     <string name="imdb">https://www.imdb.com/title/tt0114369/</string>
                     <string isNull="true" name="twitter"/>

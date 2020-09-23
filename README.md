@@ -1,4 +1,4 @@
-# Headless Movie Data Base
+# Headless Movie DB
 
 Demonstration app with sample data, combined with XP's headless API
 

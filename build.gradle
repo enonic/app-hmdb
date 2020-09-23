@@ -1,0 +1,26 @@
+plugins {
+    id 'com.enonic.xp.app' version '2.0.0'
+}
+
+apply plugin: "com.enonic.xp.app"
+
+app {
+    name = "${appName}"
+    displayName = "${appDisplayName}"
+    vendorName = "${vendorName}"
+    vendorUrl = "${vendorUrl}"
+    systemVersion = "${xpVersion}"
+}
+
+dependencies {
+    compile "com.enonic.xp:portal-api:${xpVersion}"
+    include "com.enonic.xp:lib-websocket:${xpVersion}"
+    include "com.enonic.lib:lib-guillotine:4.2.1"
+    include "com.enonic.lib:lib-graphql-playground:0.0.1"
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    xp.enonicRepo()
+}

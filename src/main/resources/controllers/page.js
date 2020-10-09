@@ -6,8 +6,8 @@ exports.get = function (req) {
         path: 'styles.css'
       });
     var baseUrl = req.scheme+"://"+req.host+":"+req.port;
-    var draftApi = baseUrl+"/site/default/draft/hmdb/api";
-    var masterApi = baseUrl+"/site/default/master/hmdb/api";
+    var draftApi = baseUrl+"/site/hmdb/draft/hmdb/api";
+    var masterApi = baseUrl+"/site/hmdb/draft/hmdb/api";
     return  {
     body: `
   <html>

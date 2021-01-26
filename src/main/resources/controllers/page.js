@@ -7,7 +7,7 @@ exports.get = function (req) {
       });
     var baseUrl = req.scheme+"://"+req.host+":"+req.port;
     var draftApi = baseUrl+"/site/hmdb/draft/hmdb/api";
-    var masterApi = baseUrl+"/site/hmdb/draft/hmdb/api";
+    var masterApi = baseUrl+"/site/hmdb/master/hmdb/api";
     return  {
     body: `
   <html>

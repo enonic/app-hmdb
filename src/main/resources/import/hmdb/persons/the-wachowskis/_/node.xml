@@ -42,7 +42,7 @@
         <string name="type">com.enonic.app.hmdb:person</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
-        <dateTime name="modifiedTime">2018-07-03T06:17:19.245Z</dateTime>
+        <dateTime name="modifiedTime">2021-03-18T08:18:09.870Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T06:14:25.764Z</dateTime>
@@ -53,7 +53,7 @@
         </property-set>
         <property-set name="data">
             <reference name="photos">9696f989-787f-4924-81d6-b8c53f7b8d0b</reference>
-            <string name="bio">The Matrix masterminds Lana and Andy Wachowski</string>
+            <string name="bio">The Matrix masterminds Lana and Lilly Wachowski</string>
             <localDate isNull="true" name="dateofbirth"/>
         </property-set>
         <property-set name="x">

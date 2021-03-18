@@ -51,6 +51,10 @@
             <dateTime isNull="true" name="from"/>
             <dateTime isNull="true" name="to"/>
         </property-set>
+        <property-set name="workflow">
+            <string name="state">READY</string>
+            <property-set name="checks"/>
+        </property-set>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">the-wachowskis.jpg</string>
@@ -63,6 +67,7 @@
             <string isNull="true" name="artist"/>
             <string isNull="true" name="copyright"/>
             <string isNull="true" name="tags"/>
+            <string isNull="true" name="altText"/>
         </property-set>
         <property-set name="x">
             <property-set name="media">
@@ -116,6 +121,7 @@
         </property-set>
     </data>
     <indexConfigs>
+        <analyzer>document_index_default</analyzer>
         <defaultConfig>
             <decideByType>true</decideByType>
             <enabled>true</enabled>

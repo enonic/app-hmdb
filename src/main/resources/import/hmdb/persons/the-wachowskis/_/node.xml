@@ -51,18 +51,28 @@
             <dateTime isNull="true" name="from"/>
             <dateTime isNull="true" name="to"/>
         </property-set>
+        <property-set name="workflow">
+            <string name="state">READY</string>
+            <property-set name="checks"/>
+        </property-set>
         <property-set name="data">
             <reference name="photos">9696f989-787f-4924-81d6-b8c53f7b8d0b</reference>
             <string name="bio">The Matrix masterminds Lana and Lilly Wachowski</string>
             <localDate isNull="true" name="dateofbirth"/>
+            <string isNull="true" name="document"/>
         </property-set>
         <property-set name="x">
             <property-set name="com-enonic-app-hmdb">
-                <property-set name="SoMe"/>
+                <property-set name="SoMe">
+                    <string isNull="true" name="imdb"/>
+                    <string isNull="true" name="twitter"/>
+                    <string isNull="true" name="instagram"/>
+                </property-set>
             </property-set>
         </property-set>
     </data>
     <indexConfigs>
+        <analyzer>document_index_default</analyzer>
         <defaultConfig>
             <decideByType>true</decideByType>
             <enabled>true</enabled>
@@ -90,6 +100,19 @@
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
                 <path>x.*</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <indexValueProcessors>
+                        <indexValueProcessor>htmlStripper</indexValueProcessor>
+                    </indexValueProcessors>
+                </indexConfig>
+                <path>data.document</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>

@@ -38,11 +38,11 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">The Wachovskis</string>
+        <string name="displayName">The Wachowskis</string>
         <string name="type">media:image</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
-        <dateTime name="modifiedTime">2018-07-03T08:16:53.772Z</dateTime>
+        <dateTime name="modifiedTime">2021-03-18T08:12:58.741Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T06:16:19.824Z</dateTime>
@@ -55,24 +55,11 @@
             <property-set name="media">
                 <string name="attachment">the-wachowskis.jpg</string>
                 <property-set name="focalPoint">
-                    <double name="x">0.7015625</double>
-                    <double name="y">0.5030799278846153</double>
-                </property-set>
-                <property-set name="zoomPosition">
-                    <double name="left">0.0</double>
-                    <double name="top">0.0</double>
-                    <double name="right">1.0</double>
-                    <double name="bottom">1.0</double>
-                </property-set>
-                <property-set name="cropPosition">
-                    <double name="left">0.0</double>
-                    <double name="top">0.0</double>
-                    <double name="right">1.0</double>
-                    <double name="bottom">1.0</double>
-                    <double name="zoom">1.0</double>
+                    <double name="x">0.5</double>
+                    <double name="y">0.5</double>
                 </property-set>
             </property-set>
-            <string name="caption">Amusing picture of both grinning</string>
+            <string name="caption">Lana and Lilly on stage at an event, smiling</string>
             <string isNull="true" name="artist"/>
             <string isNull="true" name="copyright"/>
             <string isNull="true" name="tags"/>
@@ -80,7 +67,7 @@
         <property-set name="x">
             <property-set name="media">
                 <property-set name="cameraInfo">
-                    <localDateTime isNull="true" name="date"/>
+                    <localDateTime name="date">2018-07-02T14:18:37.000Z</localDateTime>
                     <string isNull="true" name="make"/>
                     <string isNull="true" name="model"/>
                     <string isNull="true" name="lens"/>
@@ -101,12 +88,12 @@
                     <string isNull="true" name="orientation"/>
                 </property-set>
                 <property-set name="imageInfo">
-                    <long name="imageHeight">832</long>
-                    <long name="imageWidth">1480</long>
+                    <long name="imageWidth">1000</long>
+                    <long name="imageHeight">785</long>
+                    <string name="description">Mandatory Credit: Photo by Samantha Nandez/BFA/REX/Shutterstock (8623150ct)Lana WachowskiLGBT Community Center of New York Annual Fundraising Dinner, Inside, New York, USA - 20 Apr 2017/Rex_LGBT_Community_Center_of_New_York_Annual_F_8623150CT//1704220307</string>
                     <string name="contentType">image/jpeg</string>
-                    <long name="pixelSize">1231360</long>
-                    <long name="byteSize">86883</long>
-                    <string isNull="true" name="description"/>
+                    <long name="pixelSize">785000</long>
+                    <long name="byteSize">148290</long>
                     <string isNull="true" name="colorSpace"/>
                     <string isNull="true" name="fileSource"/>
                 </property-set>
@@ -124,8 +111,8 @@
             <string name="label">source</string>
             <binaryReference name="binary">the-wachowskis.jpg</binaryReference>
             <string name="mimeType">image/jpeg</string>
-            <long name="size">86883</long>
-            <string name="text"/>
+            <long name="size">148290</long>
+            <string isNull="true" name="text"/>
         </property-set>
     </data>
     <indexConfigs>

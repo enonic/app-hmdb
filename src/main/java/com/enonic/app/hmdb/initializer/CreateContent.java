@@ -15,13 +15,13 @@ import com.enonic.xp.content.ContentService;
 import com.enonic.xp.context.Context;
 import com.enonic.xp.context.ContextAccessor;
 import com.enonic.xp.context.ContextBuilder;
-import com.enonic.xp.project.ProjectName;
 import com.enonic.xp.export.ExportService;
 import com.enonic.xp.export.ImportNodesParams;
 import com.enonic.xp.export.NodeImportResult;
 import com.enonic.xp.index.IndexService;
 import com.enonic.xp.lib.content.BaseContextHandler;
 import com.enonic.xp.node.NodePath;
+import com.enonic.xp.project.ProjectName;
 import com.enonic.xp.script.bean.BeanContext;
 import com.enonic.xp.security.RoleKeys;
 import com.enonic.xp.security.User;
@@ -111,7 +111,9 @@ public class CreateContent
         LOG.info( "Errors:" );
         for ( final NodeImportResult.ImportError importError : nodeImportResult.getImportErrors() )
         {
-            LOG.info( importError.getMessage(), importError.getException() );
+            final Throwable reconstructed = new Throwable( "Reconstructed stacktrace" );
+            reconstructed.setStackTrace( importError.getStacktrace() );
+            LOG.error( importError.getMessage(), importError.getException(), reconstructed );
         }
     }
 

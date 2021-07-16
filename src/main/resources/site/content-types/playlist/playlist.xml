@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <content-type xmlns="urn:enonic:xp:model:1.0">
-  <display-name>List</display-name>
+  <display-name>Playlist</display-name>
+  <description>Selection of movies</description>
   <super-type>base:structured</super-type>
   <form>
     <input type="TextArea" name="description">

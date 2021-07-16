@@ -6,8 +6,14 @@
     <mapping controller="/controllers/graphql.js" order="50">
       <pattern>/api</pattern>
     </mapping>
-    <mapping controller="/controllers/page.js" order="50">
+    <mapping controller="/controllers/info.js" order="50">
       <match>type:'portal:site'</match>    
+    </mapping>
+    <mapping controller="/controllers/preview.js" order="50">
+      <match>type:'.*:person'</match>    
+    </mapping>
+    <mapping controller="/controllers/preview.js" order="50">
+      <match>type:'.*:movie'</match>    
     </mapping>
   </mappings>
 </site>

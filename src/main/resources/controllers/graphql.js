@@ -1,5 +1,6 @@
 const guillotineLib = require('/lib/guillotine');
 const graphqlPlaygroundLib = require('/lib/graphql-playground');
+const page = require('./info.js');
 
 //──────────────────────────────────────────────────────────────────────────────
 // Constants

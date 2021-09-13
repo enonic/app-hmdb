@@ -25,6 +25,7 @@ dependencies {
     include "com.enonic.lib:lib-guillotine:5.1.0"
     include "com.enonic.lib:lib-graphql-playground:0.0.1"
     include "com.enonic.lib:lib-thymeleaf:2.0.1"
+    include 'com.enonic.lib:lib-http-client:2.3.0'
 }
 
 repositories {

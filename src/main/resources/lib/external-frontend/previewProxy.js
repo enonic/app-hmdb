@@ -6,7 +6,7 @@ if (frontendOrigin.endsWith('/')) {
     frontendOrigin = frontendOrigin.slice(0, -1);
 }
 const frontendOriginPattern = new RegExp(frontendOrigin, 'g');
-let frontendProxyUrl = null;
+const assetProxy = `/_/service/${app.name}/assetProxy`;
 
 const draftPathPrefix = require('./connection-config').draftPathPrefix     // _draft
 const masterPathPrefix = require('./connection-config').masterPathPrefix   // _master
@@ -33,11 +33,7 @@ const errorResponse = function(url, status, message) {
 
 // This proxies requests made directly to XP to the frontend. Normally this will
 // only be used in the portal-admin content studio previews
-const proxy = function(req) {
-    if (!frontendProxyUrl) {
-        frontendProxyUrl = portalLib.serviceUrl({service: 'assetProxy'});
-    }
-
+const previewProxy = function(req) {
 
     const isLoopback = req.params[loopbackCheckParam];
     if (isLoopback) {
@@ -84,7 +80,16 @@ const proxy = function(req) {
             return errorResponse(frontendUrl, status, 'Redirects are not supported in editor view');
         }
 
-        response.body = response.body.replace(frontendOriginPattern, frontendProxyUrl);
+        response.body = response.body
+            //.replace(frontendOriginPattern, assetProxy)
+            .replace(frontendOriginPattern, "")
+            .replace(/([\s'",])\/_next\//g, "\$1" + assetProxy + "/_next/")
+            .replace(/([\s'",])\/api\//g, "\$1" + assetProxy + "/api/")
+        ;
+
+        response.pageContributions = {
+            headEnd: '<base href="http://localhost:8080/admin/site/inline/hmdb/draft/" />'
+        }
 
         return response;
 
@@ -95,11 +100,11 @@ const proxy = function(req) {
 };
 
 exports.get = function(req) {
-    const response = proxy(req);
+    const response = previewProxy(req);
 
-                                                                                                                        // log.info("FINAL response" + response.body);
+                                                                                                                        log.info("FINAL response:\n\n" + response.body+"\n");
 
     return response;
 }
 
-exports.handleError = proxy;
+exports.handleError = previewProxy;

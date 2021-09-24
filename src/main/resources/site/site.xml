@@ -6,7 +6,7 @@
     <mapping controller="/controllers/graphql.js" order="50">
       <pattern>/api</pattern>
     </mapping>
-    <mapping controller="/lib/external-frontend/proxy.js" order="99">
+    <mapping controller="/lib/external-frontend/extFrontendPreviewProxy.js" order="99">
       <match>type:'.*:.*'</match>
     </mapping>
   </mappings>

@@ -1,4 +1,5 @@
 const httpClient = require('/lib/http-client');
+const {replaceUrls} = require("../../lib/external-frontend/connection-config");
 
 const frontendOrigin = require('../../lib/external-frontend/connection-config').frontendOrigin       // "http://localhost:3000"
 
@@ -28,6 +29,14 @@ exports.get = (req) => {
             */
 
         })
+
+        if (
+            response.contentType.indexOf('javascript') > -1 ||
+            response.contentType.indexOf('html') > -1 ||
+            response.contentType.indexOf('json') > -1
+        ) {
+            response.body = replaceUrls(req, response.body);
+        }
 
         return response
 

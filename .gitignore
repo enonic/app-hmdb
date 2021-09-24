@@ -91,3 +91,4 @@ crashlytics-build.properties
 *.css.map
 
 src/main/resources/import/
+node_modules/

@@ -2,6 +2,7 @@ plugins {
     id 'maven-publish'
     id 'com.enonic.xp.app' version '3.0.0'
     id 'com.enonic.defaults' version '2.0.1'
+    id "com.github.node-gradle.node" version "3.1.0"
 }
 
 app {
@@ -26,6 +27,7 @@ dependencies {
     include "com.enonic.lib:lib-graphql-playground:0.0.1"
     include "com.enonic.lib:lib-thymeleaf:2.0.1"
     include 'com.enonic.lib:lib-http-client:2.3.0'
+
 }
 
 repositories {
@@ -33,3 +35,28 @@ repositories {
     jcenter()
     xp.enonicRepo( 'dev' )
 }
+
+
+task compileLib(type: NodeTask) {
+    group 'enonic xp'
+
+    script = file('node_modules/@babel/cli/bin/babel.js')
+    args = ["build/resources/main/lib/external-frontend", "--out-dir", "build/resources/main/lib/external-frontend"]
+
+    inputs.dir 'build/resources/main/lib/external-frontend'
+    outputs.dir("build/resources/main/lib/external-frontend")
+}
+compileLib.dependsOn += npmInstall
+jar.dependsOn += 'compileLib'
+
+task compileService(type: NodeTask) {
+    group 'enonic xp'
+
+    script = file('node_modules/@babel/cli/bin/babel.js')
+    args = ["build/resources/main/services/extFrontendProxy", "--out-dir", "build/resources/main/services/extFrontendProxy"]
+
+    inputs.dir 'build/resources/main/services/extFrontendProxy'
+    outputs.dir("build/resources/main/services/extFrontendProxy")
+}
+compileService.dependsOn += npmInstall
+jar.dependsOn += 'compileService'

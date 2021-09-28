@@ -1,5 +1,5 @@
 const httpClient = require('/lib/http-client');
-const {replaceUrls} = require("../../lib/external-frontend/connection-config");
+const {replaceUrls} = require("../../lib/external-frontend/postProcess");
 
 const frontendOrigin = require('../../lib/external-frontend/connection-config').frontendOrigin       // "http://localhost:3000"
 
@@ -30,12 +30,13 @@ exports.get = (req) => {
 
         })
 
+        const isHtml = response.contentType.indexOf('html') > -1;
         if (
+            isHtml ||
             response.contentType.indexOf('javascript') > -1 ||
-            response.contentType.indexOf('html') > -1 ||
             response.contentType.indexOf('json') > -1
         ) {
-            response.body = replaceUrls(req, response.body);
+            response.body = replaceUrls(req, response.body,                                                             isHtml && req.mode !== 'live');
         }
 
         return response

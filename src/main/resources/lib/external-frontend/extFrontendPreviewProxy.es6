@@ -1,7 +1,7 @@
 const portalLib = require('/lib/xp/portal');
 const httpClientLib = require('/lib/http-client');
-const {replaceUrls} = require("./connection-config");
 
+const {replaceUrls} = require("./postProcess");
 
 let frontendOrigin = require('./connection-config').frontendOrigin       // "http://localhost:3000"
 if (frontendOrigin.endsWith('/')) {
@@ -13,10 +13,6 @@ if (frontendOrigin.endsWith('/')) {
 
 const loopbackCheckParam = '__fromXp__';
 
-const prefix = {
-    draft: require('./connection-config').draftPathPrefix ,     // _draft,
-    master: require('./connection-config').masterPathPrefix     // _master,
-}
 
 
 
@@ -59,9 +55,9 @@ const proxy = function(req) {
 
     // Fetch content path with the site name stripped away
     const contentPathArr = portalLib.getContent()._path.split('/');
-    const contentSubPath = '/' + contentPathArr.slice((!contentPathArr[0]) ? 2 : 1).join("/");
+    const contentSubPath = contentPathArr.slice((!contentPathArr[0]) ? 2 : 1).join("/");
 
-    const frontendUrl = `${frontendOrigin}/${prefix[req.branch]}${contentSubPath}?${loopbackCheckParam}=true`;
+    const frontendUrl = `${frontendOrigin}/${contentSubPath}?${loopbackCheckParam}=true`;
 
                                                                                                                         log.info("------------------\nfrontendUrl (" +
                                                                                                                             (Array.isArray(frontendUrl) ?
@@ -102,10 +98,8 @@ const proxy = function(req) {
             return errorResponse(frontendUrl, status, 'Redirects are not supported in editor view');
         }
 
-        response.body = replaceUrls(req, response.body);
-
-
-                                                                                                                        if (response.status === 200 && response.contentType.indexOf('text/html') !== -1) {
+                                                                                                                        const isHtml = response.status === 200 && response.contentType.indexOf('text/html') !== -1 && req.mode !== 'live';
+                                                                                                                        if (isHtml) {
                                                                                                                             const resp = {...response};
                                                                                                                             delete resp.body;
                                                                                                                             log.info("HTML response (" +
@@ -114,7 +108,6 @@ const proxy = function(req) {
                                                                                                                                         (typeof resp + (resp && typeof resp === 'object' ? (" with keys: " + JSON.stringify(Object.keys(resp))) : ""))
                                                                                                                                 ) + "): " + JSON.stringify(resp, null, 2)
                                                                                                                             );
-                                                                                                                            log.info("\nbody:\n" + response.body + "\n")
 
                                                                                                                         } else {
                                                                                                                             log.info("response (" +
@@ -124,6 +117,23 @@ const proxy = function(req) {
                                                                                                                                 ) + "): " + JSON.stringify(response, null, 2)
                                                                                                                             );
                                                                                                                         }
+        // FIXME: req.contextPath is incorrect value. Should be e.g. siteUrl?
+        const baseUrl = `${req.contextPath}/`;
+
+        response.body = replaceUrls(req, response.body, baseUrl,                                                        isHtml);
+
+        const pageContributions = response.pageContributions || {};
+        response.pageContributions = {
+            ...pageContributions,
+            headEnd: [
+                ...(
+                    (typeof pageContributions.headEnd === 'string')
+                        ?  [pageContributions.headEnd]
+                        :  pageContributions.headEnd || []
+                ).map(item => item.replace(/<base\s+.*?(\/>|\/base>)/g, '')),
+                `<base href="${baseUrl}" />`
+            ]
+        }
         return response;
 
     } catch (e) {

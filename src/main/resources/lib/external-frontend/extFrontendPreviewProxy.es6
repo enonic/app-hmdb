@@ -43,6 +43,14 @@ const proxy = function(req) {
                                                                                                                             ) + "): " + JSON.stringify(req, null, 2)
                                                                                                                         );
 
+    const sitePath = portalLib.getSite()._path;
+    const siteUrl = portalLib.pageUrl({
+        path: sitePath,
+        type: 'server'
+    });
+    const baseUrl = `${siteUrl}/`;
+
+
     const isLoopback = req.params[loopbackCheckParam];
     if (isLoopback) {
         log.info(`Loopback to XP detected from path ${req.rawPath}`);
@@ -98,8 +106,8 @@ const proxy = function(req) {
             return errorResponse(frontendUrl, status, 'Redirects are not supported in editor view');
         }
 
-                                                                                                                        const isHtml = response.status === 200 && response.contentType.indexOf('text/html') !== -1 && req.mode !== 'live';
-                                                                                                                        if (isHtml) {
+                                                                                                                        const logHtml = response.status === 200 && response.contentType.indexOf('html') !== -1 && req.mode !== 'live';
+                                                                                                                        if (logHtml) {
                                                                                                                             const resp = {...response};
                                                                                                                             delete resp.body;
                                                                                                                             log.info("HTML response (" +
@@ -117,10 +125,8 @@ const proxy = function(req) {
                                                                                                                                 ) + "): " + JSON.stringify(response, null, 2)
                                                                                                                             );
                                                                                                                         }
-        // FIXME: req.contextPath is incorrect value. Should be e.g. siteUrl?
-        const baseUrl = `${req.contextPath}/`;
 
-        response.body = replaceUrls(req, response.body, baseUrl,                                                        isHtml);
+        response.body = replaceUrls(req, response.body, baseUrl,                                                        logHtml);
 
         const pageContributions = response.pageContributions || {};
         response.pageContributions = {

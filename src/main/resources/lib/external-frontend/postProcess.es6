@@ -10,15 +10,15 @@ const extRootPattern = new RegExp(`${extRoot}?`, "g");
 
 
 /** Replace URL refs in both HTML, JS and JSON sources from pointing to frontend-urls to making them sub-urls below the extFrontendProxy service */
-export const replaceUrls = (req, body, proxyUrl, logHtml) => {
+export const replaceUrls = (req, body, proxyUrlWithSlash, /*siteName,*/ logHtml) => {
 
-    const extFrontendProxyRoot = `$1${proxyUrl}/$3/`;
+    const extFrontendProxyRoot = `$1${proxyUrlWithSlash}$3`;
                                                                                                                         //log.info("extFrontendProxyRoot: " + extFrontendProxyRoot);
 
     let bodyReplaced = body
         // Replace local absolute root URLs (e.g. "/_next/..., "/api/... etc):
         .replace(nativeApiPattern, extFrontendProxyRoot)
-        .replace(extRootPattern, '')
+        .replace(extRootPattern, proxyUrlWithSlash)
                                                                                                                         if (logHtml) {
                                                                                                                             const pretty = bodyReplaced
                                                                                                                                 // Format HTML a little for readability:
@@ -34,4 +34,20 @@ export const replaceUrls = (req, body, proxyUrl, logHtml) => {
                                                                                                                         }
 
     return bodyReplaced;
+}
+
+
+export const baseUrlPageContributions = (response, siteUrl) => {
+    const pageContributions = response.pageContributions || {};
+    return {
+        ...pageContributions,
+        headBegin: [
+            ...(
+                (typeof pageContributions.headBegin === 'string')
+                    ?  [pageContributions.headBegin]
+                    :  pageContributions.headBegin || []
+            ).map(item => item.replace(/<base\s+.*?(\/>|\/base>)/g, '')),
+            `<base href="${siteUrl}" />`
+        ]
+    };
 }

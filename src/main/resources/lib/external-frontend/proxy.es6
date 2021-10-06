@@ -1,10 +1,10 @@
 const portalLib = require('/lib/xp/portal');
 const httpClientLib = require('/lib/http-client');
 
-const {replaceUrls} = require("./postProcess");
+const {replaceUrls, baseUrlPageContributions} = require("./postProcess");
 
-const MAPPING_TO_HERE = '_ext_frontend_proxy';
-const PROXY_MATCH_PATTERN = new RegExp(`^/?${MAPPING_TO_HERE}(/.*)?$`);
+const MAPPING_TO_THIS_PROXY = '_ext_frontend_proxy';
+const PROXY_MATCH_PATTERN = new RegExp(`^/?${MAPPING_TO_THIS_PROXY}(/.*)?$`);
 
 let frontendOrigin = require('./connection-config').frontendOrigin       // "http://localhost:3000"
 if (frontendOrigin.endsWith('/')) {
@@ -46,11 +46,14 @@ const previewProxy = function(req) {
                                                                                                                             ) + "): " + JSON.stringify(req, null, 2)
                                                                                                                         );
 
-    const sitePath = portalLib.getSite()._path;
+    const site = portalLib.getSite();
+    const sitePath = site._path;
     const siteUrl = portalLib.pageUrl({
         path: sitePath,
         type: 'server'
-    });
+    })
+        // Normalizing for variations in input and vhost: always end with vhost
+        .replace(/\/*$/, '/');
                                                                                                                         log.info("siteUrl (" +
                                                                                                                             (Array.isArray(siteUrl) ?
                                                                                                                                 ("array[" + siteUrl.length + "]") :
@@ -60,7 +63,10 @@ const previewProxy = function(req) {
     if (!req.path.startsWith(siteUrl)) {
         throw Error("req.path " + JSON.stringify(req.path) + " was expected to start with siteUrl " + JSON.stringify(siteUrl));
     }
-    const siteRelativeReqPath = req.path.substring(siteUrl.length);
+    const siteRelativeReqPath = req.path.substring(siteUrl.length)
+        // Normalizing for variations in input and vhost: always start with a slash, never end with one (unless root)
+        .replace(/\/*$/, '')
+        .replace(/^\/*/, '/');
                                                                                                                         log.info("siteRelativeReqPath (" +
                                                                                                                             (Array.isArray(siteRelativeReqPath) ?
                                                                                                                                     ("array[" + siteRelativeReqPath.length + "]") :
@@ -72,7 +78,10 @@ const previewProxy = function(req) {
     if (!content._path.startsWith(sitePath)) {
         throw Error("content._path " + JSON.stringify(content._path) + " was expected to start with sitePath " + JSON.stringify(sitePath));
     }
-    const siteRelativeContentPath = content._path.substring(sitePath.length);
+    const siteRelativeContentPath = content._path.substring(sitePath.length)
+        // Normalizing for variations in input and vhost: always start with a slash, never end with one (unless root)
+        .replace(/\/*$/, '')
+        .replace(/^\/*/, '/');
                                                                                                                         log.info("siteRelativeContentPath (" +
                                                                                                                             (Array.isArray(siteRelativeContentPath) ?
                                                                                                                                     ("array[" + siteRelativeContentPath.length + "]") :
@@ -206,9 +215,11 @@ const previewProxy = function(req) {
                                                                                                                             );
                                                                                                                         }
 
-        // TODO: BaseUrl?
 
-        response.body = replaceUrls(req, response.body, `${siteUrl}/${MAPPING_TO_HERE}`,                       logHtml);
+        if (isHtml) {
+            response.body = replaceUrls(req, response.body, `${siteUrl}${MAPPING_TO_THIS_PROXY}/`,                                                                /*site._name, */                             logHtml);
+            response.pageContributions = baseUrlPageContributions(response, siteUrl);
+        }
 
         return response;
 
@@ -218,12 +229,6 @@ const previewProxy = function(req) {
     }
 };
 
-exports.get = function(req) {
-    const response = previewProxy(req);
-
-                                                                                                                        // log.info("FINAL response" + response.body);
-
-    return response;
-}
+exports.get = previewProxy
 
 exports.handleError = previewProxy;

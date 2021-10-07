@@ -60,13 +60,19 @@ const previewProxy = function(req) {
                                                                                                                                 (typeof siteUrl + (siteUrl && typeof siteUrl === 'object' ? (" with keys: " + JSON.stringify(Object.keys(siteUrl))) : ""))
                                                                                                                             ) + "): " + JSON.stringify(siteUrl, null, 2)
                                                                                                                         );
+    let siteRelativeReqPath;
     if (!req.path.startsWith(siteUrl)) {
-        throw Error("req.path " + JSON.stringify(req.path) + " was expected to start with siteUrl " + JSON.stringify(siteUrl));
+        if (req.path.replace(/\/*$/, '/') === siteUrl) {
+            siteRelativeReqPath = '/';
+        } else {
+            throw Error("req.path " + JSON.stringify(req.path) + " was expected to start with siteUrl " + JSON.stringify(siteUrl));
+        }
+    } else {
+        siteRelativeReqPath = req.path.substring(siteUrl.length)
+            // Normalizing for variations in input and vhost: always start with a slash, never end with one (unless root)
+            .replace(/\/*$/, '')
+            .replace(/^\/*/, '/');
     }
-    const siteRelativeReqPath = req.path.substring(siteUrl.length)
-        // Normalizing for variations in input and vhost: always start with a slash, never end with one (unless root)
-        .replace(/\/*$/, '')
-        .replace(/^\/*/, '/');
                                                                                                                         log.info("siteRelativeReqPath (" +
                                                                                                                             (Array.isArray(siteRelativeReqPath) ?
                                                                                                                                     ("array[" + siteRelativeReqPath.length + "]") :

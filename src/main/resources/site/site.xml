@@ -10,7 +10,7 @@
             <!--FIXME: Matching only the pattern PROXY_MATCH_PATTERN (see proxy.es6) and existing contents, and returning
              404 for the rest should be handled here. But until https://github.com/enonic/xp/issues/8530 is fixed,
              this is handled manually in proxy.es6. -->
-            <match>type:'.+:.+'</match>
+            <match>type:'.*:.*'</match>
         </mapping>
     </mappings>
 </site>

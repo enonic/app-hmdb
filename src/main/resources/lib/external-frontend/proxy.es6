@@ -34,18 +34,18 @@ const proxy = function(req) {
         };
     }
 
-                                                                                                                        /*
+/*
+    const isLoopback = req.params[FROM_XP_PARAM];
+    if (isLoopback) {
+        log.info(`Loopback to XP detected from path ${req.rawPath}`);
+        return {
+            contentType: 'text/html',
+            body: `<div>Error: request to frontend looped back to XP</div>`,
+            status: 200,
+        };
+    }
+*/
 
-                                                                                                                            const isLoopback = req.params[LOOPBACKCHECKPARAM];
-                                                                                                                            if (isLoopback) {
-                                                                                                                                log.info(`Loopback to XP detected from path ${req.rawPath}`);
-                                                                                                                                return {
-                                                                                                                                    contentType: 'text/html',
-                                                                                                                                    body: `<div>Error: request to frontend looped back to XP</div>`,
-                                                                                                                                    status: 200,
-                                                                                                                                };
-                                                                                                                            }
-                                                                                                                        */
     const frontendUrl = parseFrontendUrl(req, frontendRequestPath);
 
     try {

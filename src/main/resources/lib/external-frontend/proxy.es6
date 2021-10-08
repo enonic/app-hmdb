@@ -60,25 +60,7 @@ const previewProxy = function(req) {
                                                                                                                                 (typeof siteUrl + (siteUrl && typeof siteUrl === 'object' ? (" with keys: " + JSON.stringify(Object.keys(siteUrl))) : ""))
                                                                                                                             ) + "): " + JSON.stringify(siteUrl, null, 2)
                                                                                                                         );
-    let siteRelativeReqPath;
-    if (!req.path.startsWith(siteUrl)) {
-        if (req.path.replace(/\/*$/, '/') === siteUrl) {
-            siteRelativeReqPath = '/';
-        } else {
-            throw Error("req.path " + JSON.stringify(req.path) + " was expected to start with siteUrl " + JSON.stringify(siteUrl));
-        }
-    } else {
-        siteRelativeReqPath = req.path.substring(siteUrl.length)
-            // Normalizing for variations in input and vhost: always start with a slash, never end with one (unless root)
-            .replace(/\/*$/, '')
-            .replace(/^\/*/, '/');
-    }
-                                                                                                                        log.info("siteRelativeReqPath (" +
-                                                                                                                            (Array.isArray(siteRelativeReqPath) ?
-                                                                                                                                    ("array[" + siteRelativeReqPath.length + "]") :
-                                                                                                                                    (typeof siteRelativeReqPath + (siteRelativeReqPath && typeof siteRelativeReqPath === 'object' ? (" with keys: " + JSON.stringify(Object.keys(siteRelativeReqPath))) : ""))
-                                                                                                                            ) + "): " + JSON.stringify(siteRelativeReqPath, null, 2)
-                                                                                                                        );
+
 
     const content = portalLib.getContent();
     if (!content._path.startsWith(sitePath)) {
@@ -93,6 +75,37 @@ const previewProxy = function(req) {
                                                                                                                                     ("array[" + siteRelativeContentPath.length + "]") :
                                                                                                                                     (typeof siteRelativeContentPath + (siteRelativeContentPath && typeof siteRelativeContentPath === 'object' ? (" with keys: " + JSON.stringify(Object.keys(siteRelativeContentPath))) : ""))
                                                                                                                             ) + "): " + JSON.stringify(siteRelativeContentPath, null, 2)
+                                                                                                                        );
+
+    let siteRelativeReqPath = null;
+    if (!req.path.startsWith(siteUrl)) {
+        if (req.path.replace(/\/*$/, '/') === siteUrl) {
+            siteRelativeReqPath = '/';
+
+        } else if (req.mode === 'edit') {
+            const editRootUrl = siteUrl.replace(new RegExp(`${site._name}/$`), '');
+            if (req.path === `${editRootUrl}${content._id}`) {
+                siteRelativeReqPath = siteRelativeContentPath;
+
+            } else {
+                throw Error("req.path " + JSON.stringify(req.path) + " not recognized with _path or _id.");
+            }
+
+        } else {
+            throw Error("req.path " + JSON.stringify(req.path) + " was expected to start with siteUrl " + JSON.stringify(siteUrl));
+        }
+
+    } else {
+        siteRelativeReqPath = req.path.substring(siteUrl.length)
+            // Normalizing for variations in input and vhost: always start with a slash, never end with one (unless root)
+            .replace(/\/*$/, '')
+            .replace(/^\/*/, '/');
+    }
+                                                                                                                        log.info("siteRelativeReqPath (" +
+                                                                                                                            (Array.isArray(siteRelativeReqPath) ?
+                                                                                                                                    ("array[" + siteRelativeReqPath.length + "]") :
+                                                                                                                                    (typeof siteRelativeReqPath + (siteRelativeReqPath && typeof siteRelativeReqPath === 'object' ? (" with keys: " + JSON.stringify(Object.keys(siteRelativeReqPath))) : ""))
+                                                                                                                            ) + "): " + JSON.stringify(siteRelativeReqPath, null, 2)
                                                                                                                         );
 
 
@@ -143,13 +156,13 @@ const previewProxy = function(req) {
     }
 */
 
-
+/*
                                                                                                                         log.info("content._path (" +
                                                                                                                         	(Array.isArray(content._path) ?
                                                                                                                         		("array[" + content._path.length + "]") :
                                                                                                                         		(typeof content._path + (content._path && typeof content._path === 'object' ? (" with keys: " + JSON.stringify(Object.keys(content._path))) : ""))
                                                                                                                         	) + "): " + JSON.stringify(content._path, null, 2)
-                                                                                                                        );
+                                                                                                                        );*/
 
     // - If the siteUrl is removed from req.path, and what's left is equal to content._path, then
 
@@ -159,7 +172,7 @@ const previewProxy = function(req) {
     const paramsString = Object.keys(params)
         .map( key => `${key}=${params[key]}`)
         .join( '&');
-    const frontendUrl = `${frontendOrigin}/${proxyPath}?${paramsString}`;
+    const frontendUrl = `${frontendOrigin}/${proxyPath}?${paramsString}`.replace(/\/+/g, '/');
 
                                                                                                                         log.info("------------------\nfrontendUrl (" +
                                                                                                                             (Array.isArray(frontendUrl) ?

@@ -7,10 +7,11 @@
             <pattern>/api</pattern>
         </mapping>
         <mapping controller="/lib/external-frontend/proxy.js" order="99">
-            <!--FIXME: Matching only the pattern PROXY_MATCH_PATTERN (see proxy.es6) and existing contents, and returning
-             404 for the rest should be handled here. But until https://github.com/enonic/xp/issues/8530 is fixed,
-             this is handled manually in proxy.es6. -->
-            <match>type:'.*:.*'</match>
+            <!--FIXME:  This match should only handle MAPPING_TO_THIS_PROXY (see lib/external-frontend/proxy.es6) and existing non-media contents,
+                        and return 404 for the rest. But until https://github.com/enonic/xp/issues/8530 is fixed,
+                        this is handled manually in proxy.es6: currently ONLY non-media types are not handled by this - even non-existing urls,
+                        so the controller needs to manually look out for its own pattern MAPPING_TO_THIS_PROXY and for existing content, and return 404 for the rest. -->
+            <match>type:'^(?!media:.*$).*'</match>
         </mapping>
     </mappings>
 </site>

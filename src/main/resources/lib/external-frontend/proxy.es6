@@ -1,7 +1,7 @@
 const httpClientLib = require('/lib/http-client');
 
-const { MAPPING_TO_THIS_PROXY } = require('./connection-config');
-const { replaceUrls, baseUrlPageContributions } = require("./postprocessing");
+const { MAPPING_TO_THIS_PROXY, FROM_XP_PARAM } = require('./connection-config');
+const { getBodyWithReplacedUrls, getPageContributionsWithBaseUrl } = require("./postprocessing");
 const { parseFrontendUrl, parseFrontendRequestPath } = require("./parsing");
 
 
@@ -26,16 +26,6 @@ const errorResponse = function(url, status, message) {
 // This proxies both requests made to XP content item paths and to frontend-relative paths (below the proxy "mapping" MAPPING_TO_THIS_PROXY),
 // and uses httpClientLib to make the same request from the frontend, whether its rendered HTML or frontend assets.
 const proxy = function(req) {
-
-
-
-                                                                                                                        log.info("req (" +
-                                                                                                                            (Array.isArray(req) ?
-                                                                                                                                ("array[" + req.length + "]") :
-                                                                                                                                (typeof req + (req && typeof req === 'object' ? (" with keys: " + JSON.stringify(Object.keys(req))) : ""))
-                                                                                                                            ) + "): " + JSON.stringify(req, null, 2)
-                                                                                                                        );
-
 
     const { frontendRequestPath, xpSiteUrl, error } = parseFrontendRequestPath(req);
     if (error) {
@@ -90,30 +80,9 @@ const proxy = function(req) {
         }
 
         const isHtml = response.status === 200 && response.contentType.indexOf('html') !== -1;
-                                                                                                                        const logHtml = isHtml && req.mode !== 'live';
-                                                                                                                        if (logHtml) {
-                                                                                                                            const resp = {...response};
-                                                                                                                            delete resp.body;
-                                                                                                                            log.info("HTML response (" +
-                                                                                                                                (Array.isArray(resp) ?
-                                                                                                                                        ("array[" + resp.length + "]") :
-                                                                                                                                        (typeof resp + (resp && typeof resp === 'object' ? (" with keys: " + JSON.stringify(Object.keys(resp))) : ""))
-                                                                                                                                ) + "): " + JSON.stringify(resp, null, 2)
-                                                                                                                            );
-
-                                                                                                                        } else if (response.status !== 200) {
-                                                                                                                            log.info("response (" +
-                                                                                                                                (Array.isArray(response) ?
-                                                                                                                                        ("array[" + response.length + "]") :
-                                                                                                                                        (typeof response + (response && typeof response === 'object' ? (" with keys: " + JSON.stringify(Object.keys(response))) : ""))
-                                                                                                                                ) + "): " + JSON.stringify(response, null, 2)
-                                                                                                                            );
-                                                                                                                        }
-
-
         if (isHtml) {
-            response.body = replaceUrls(req, response.body, `${xpSiteUrl}${MAPPING_TO_THIS_PROXY}/`,            logHtml);
-            response.pageContributions = baseUrlPageContributions(response, xpSiteUrl);
+            response.body = getBodyWithReplacedUrls(req, response.body, `${xpSiteUrl}${MAPPING_TO_THIS_PROXY}/`);
+            response.pageContributions = getPageContributionsWithBaseUrl(response, xpSiteUrl);
         }
 
         return response;

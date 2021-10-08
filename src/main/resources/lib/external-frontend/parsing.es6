@@ -25,17 +25,10 @@ const getSiteRelativeContentPath = (content, sitePath) => {
     if (!content._path.startsWith(sitePath)) {
         throw Error("content._path " + JSON.stringify(content._path) + " was expected to start with sitePath " + JSON.stringify(sitePath));
     }
-    const siteRelativeContentPath = content._path.substring(sitePath.length)
+    return content._path.substring(sitePath.length)
         // Normalizing for variations in input and vhost: always start with a slash, never end with one (unless root)
         .replace(/\/*$/, '')
         .replace(/^\/*/, '/');
-                                                                                                                        log.info("siteRelativeContentPath (" +
-                                                                                                                            (Array.isArray(siteRelativeContentPath) ?
-                                                                                                                                    ("array[" + siteRelativeContentPath.length + "]") :
-                                                                                                                                    (typeof siteRelativeContentPath + (siteRelativeContentPath && typeof siteRelativeContentPath === 'object' ? (" with keys: " + JSON.stringify(Object.keys(siteRelativeContentPath))) : ""))
-                                                                                                                            ) + "): " + JSON.stringify(siteRelativeContentPath, null, 2)
-                                                                                                                        );
-    return siteRelativeContentPath;
 }
 
 
@@ -83,16 +76,25 @@ const getSiteRelativeRequestPath = (req, xpSiteUrl, site, content, siteRelativeC
             .replace(/\/*$/, '')
             .replace(/^\/*/, '/');
     }
-                                                                                                                        log.info("siteRelativeReqPath (" +
-                                                                                                                            (Array.isArray(siteRelativeReqPath) ?
-                                                                                                                                    ("array[" + siteRelativeReqPath.length + "]") :
-                                                                                                                                    (typeof siteRelativeReqPath + (siteRelativeReqPath && typeof siteRelativeReqPath === 'object' ? (" with keys: " + JSON.stringify(Object.keys(siteRelativeReqPath))) : ""))
-                                                                                                                            ) + "): " + JSON.stringify(siteRelativeReqPath, null, 2)
-                                                                                                                        );
 
     return siteRelativeReqPath;
 }
 
+
+
+const getFrontendRequestPath = (isContentItem, nonContentPath, contentPath) => {
+    if (isContentItem) {
+        const contentPathArr = contentPath.split('/');
+        return contentPathArr
+            .slice( (!contentPathArr[0])
+                ? 2
+                : 1
+            )
+            .join("/");
+    } else {
+        return nonContentPath[1] || '';
+    }
+}
 
 
 
@@ -125,13 +127,6 @@ export const parseFrontendRequestPath = (req) => {
         // Normalizing for variations in input and vhosting: always end with exactly one slash
         .replace(/\/*$/, '/');
 
-                                                                                                                        log.info("xpSiteUrl (" +
-                                                                                                                            (Array.isArray(xpSiteUrl) ?
-                                                                                                                                    ("array[" + xpSiteUrl.length + "]") :
-                                                                                                                                    (typeof xpSiteUrl + (xpSiteUrl && typeof xpSiteUrl === 'object' ? (" with keys: " + JSON.stringify(Object.keys(xpSiteUrl))) : ""))
-                                                                                                                            ) + "): " + JSON.stringify(xpSiteUrl, null, 2)
-                                                                                                                        );
-
 
     // Without actual mapping (until https://github.com/enonic/xp/issues/8530 is fixed), it's handled like this:
     // Compare: do the request and the current content agree on what's the relative path?
@@ -143,12 +138,6 @@ export const parseFrontendRequestPath = (req) => {
     const isContentItem = siteRelativeContentPath === siteRelativeReqPath;
 
     const nonContentPath = siteRelativeReqPath.match(PROXY_MATCH_PATTERN)
-                                                                                                                        log.info("nonContentPath match (" +
-                                                                                                                            (Array.isArray(nonContentPath) ?
-                                                                                                                                    ("array[" + nonContentPath.length + "]") :
-                                                                                                                                    (typeof nonContentPath + (nonContentPath && typeof nonContentPath === 'object' ? (" with keys: " + JSON.stringify(Object.keys(nonContentPath))) : ""))
-                                                                                                                            ) + "): " + JSON.stringify(nonContentPath, null, 2)
-                                                                                                                        );
 
     if (!isContentItem && !nonContentPath) {
         return {
@@ -156,33 +145,15 @@ export const parseFrontendRequestPath = (req) => {
         };
     }
 
-
-                                                                                                                        log.info("A-OKAY");
-    let frontendRequestPath;
-    if (isContentItem) {
-        const contentPathArr = content._path.split('/');
-        frontendRequestPath = contentPathArr
-            .slice( (!contentPathArr[0])
-                ? 2
-                : 1
-            )
-            .join("/");
-    } else {
-        frontendRequestPath = nonContentPath[1] || '';
-    }
-
-                                                                                                                        log.info("----> frontendRequestPath (" +
-                                                                                                                            (Array.isArray(frontendRequestPath) ?
-                                                                                                                                    ("array[" + frontendRequestPath.length + "]") :
-                                                                                                                                    (typeof frontendRequestPath + (frontendRequestPath && typeof frontendRequestPath === 'object' ? (" with keys: " + JSON.stringify(Object.keys(frontendRequestPath))) : ""))
-                                                                                                                            ) + "): " + JSON.stringify(frontendRequestPath, null, 2)
-                                                                                                                        );
+    const frontendRequestPath = getFrontendRequestPath(isContentItem, nonContentPath, content._path);
 
     return {
         frontendRequestPath,
         xpSiteUrl
     }
 }
+
+
 
 
 export const parseFrontendUrl = (req, frontendRequestPath) => {
@@ -192,14 +163,6 @@ export const parseFrontendUrl = (req, frontendRequestPath) => {
         .map( key => `${key}=${params[key]}`)
         .join( '&');
 
-    const frontendUrl = `${frontendOrigin}/${frontendRequestPath}?${paramsString}`.replace(/\/+/g, '/');
-
-                                                                                                                        log.info("------------------\nfrontendUrl (" +
-                                                                                                                            (Array.isArray(frontendUrl) ?
-                                                                                                                                    ("array[" + frontendUrl.length + "]") :
-                                                                                                                                    (typeof frontendUrl + (frontendUrl && typeof frontendUrl === 'object' ? (" with keys: " + JSON.stringify(Object.keys(frontendUrl))) : ""))
-                                                                                                                            ) + "): " + JSON.stringify(frontendUrl, null, 2)
-                                                                                                                        );
-    return frontendUrl;
+    return `${frontendOrigin}/${frontendRequestPath}?${paramsString}`.replace(/\/+/g, '/');
 }
 

@@ -1,6 +1,6 @@
-const {frontendOrigin} = require("./connection-config")
+const {FRONTEND_ORIGIN} = require("./connection-config")
 
-const extRoot = frontendOrigin.replace(/\/*$/, '/');
+const extRoot = FRONTEND_ORIGIN.replace(/\/*$/, '/');
 const nativeApiPattern = new RegExp(`(['"\`])(${extRoot})(_next(?!/image\?)/|api/)`, "g");
 const extRootPattern = new RegExp(`${extRoot}?`, "g");
 

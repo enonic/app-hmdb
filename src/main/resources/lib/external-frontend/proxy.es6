@@ -1,6 +1,6 @@
 const httpClientLib = require('/lib/http-client');
 
-const { MAPPING_TO_THIS_PROXY, FROM_XP_PARAM } = require('./connection-config');
+const { MAPPING_TO_THIS_PROXY } = require('./connection-config');
 const { getBodyWithReplacedUrls, getPageContributionsWithBaseUrl } = require("./postprocessing");
 const { parseFrontendUrl, parseFrontendRequestPath } = require("./parsing");
 
@@ -35,6 +35,7 @@ const proxy = function(req) {
     }
 
 /*
+    const { FROM_XP_PARAM } = require('./connection-config');
     const isLoopback = req.params[FROM_XP_PARAM];
     if (isLoopback) {
         log.info(`Loopback to XP detected from path ${req.rawPath}`);

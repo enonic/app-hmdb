@@ -80,10 +80,18 @@ const proxy = function(req) {
             return errorResponse(frontendUrl, status, 'Redirects are not supported in editor view');
         }
 
-        const isHtml = response.status === 200 && response.contentType.indexOf('html') !== -1;
-        if (isHtml) {
+        const isOk =  response.status === 200;
+        const isHtml = isOk && response.contentType.indexOf('html') !== -1;
+        const isJs = isOk && response.contentType.indexOf('javascript') !== -1;
+
+        if (isHtml || isJs) {
             response.body = getBodyWithReplacedUrls(req, response.body, `${xpSiteUrl}${MAPPING_TO_THIS_PROXY}/`);
+        }
+        if (isHtml) {
             response.pageContributions = getPageContributionsWithBaseUrl(response, xpSiteUrl);
+        }
+        if (!isHtml) {
+            response.postProcess = false
         }
 
         return response;

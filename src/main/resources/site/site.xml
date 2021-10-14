@@ -4,7 +4,7 @@
     <form/>
     <mappings>
         <mapping controller="/controllers/graphql.js" order="50">
-            <pattern>/api</pattern>
+            <pattern>/_guillotine</pattern>
         </mapping>
         <mapping controller="/lib/external-frontend/proxy.js" order="99">
             <!--FIXME:  This match should only handle MAPPING_TO_THIS_PROXY (see lib/external-frontend/proxy.es6) and existing non-media contents,

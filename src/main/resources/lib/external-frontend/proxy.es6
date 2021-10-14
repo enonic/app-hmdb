@@ -1,6 +1,5 @@
 const httpClientLib = require('/lib/http-client');
 
-const { MAPPING_TO_THIS_PROXY } = require('./connection-config');
 const { getBodyWithReplacedUrls, getPageContributionsWithBaseUrl } = require("./postprocessing");
 const { parseFrontendUrl, parseFrontendRequestPath } = require("./parsing");
 
@@ -27,14 +26,7 @@ const errorResponse = function(url, status, message) {
 // and uses httpClientLib to make the same request from the frontend, whether its rendered HTML or frontend assets.
 const proxy = function(req) {
 
-    const { frontendRequestPath, xpSiteUrl, error } = parseFrontendRequestPath(req);
-    if (error) {
-        return {
-            status: error
-        };
-    }
-
-/*
+    /*
     const { FROM_XP_PARAM } = require('./connection-config');
     const isLoopback = req.params[FROM_XP_PARAM];
     if (isLoopback) {
@@ -45,7 +37,16 @@ const proxy = function(req) {
             status: 200,
         };
     }
-*/
+    */
+
+    const { frontendRequestPath, xpSiteRootUrl } = parseFrontendRequestPath(req);
+
+                                                                                                                        log.info("frontendRequestPath (" +
+                                                                                                                            (Array.isArray(frontendRequestPath) ?
+                                                                                                                                ("array[" + frontendRequestPath.length + "]") :
+                                                                                                                                (typeof frontendRequestPath + (frontendRequestPath && typeof frontendRequestPath === 'object' ? (" with keys: " + JSON.stringify(Object.keys(frontendRequestPath))) : ""))
+                                                                                                                            ) + "): " + JSON.stringify(frontendRequestPath, null, 2)
+                                                                                                                        );
 
     const frontendUrl = parseFrontendUrl(req, frontendRequestPath);
 
@@ -85,15 +86,16 @@ const proxy = function(req) {
         const isJs = isOk && response.contentType.indexOf('javascript') !== -1;
 
         if (isHtml || isJs) {
-            response.body = getBodyWithReplacedUrls(req, response.body, `${xpSiteUrl}${MAPPING_TO_THIS_PROXY}/`);
+            response.body = getBodyWithReplacedUrls(req, response.body, xpSiteRootUrl);
         }
+
         if (isHtml) {
-            response.pageContributions = getPageContributionsWithBaseUrl(response, xpSiteUrl);
-        }
-        if (!isHtml) {
+            response.pageContributions = getPageContributionsWithBaseUrl(response, xpSiteRootUrl);
+        } else {
             response.postProcess = false
         }
 
+                                                                                                                                log.info("Ok.");
         return response;
 
     } catch (e) {

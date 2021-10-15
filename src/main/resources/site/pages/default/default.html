@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title data-th-text="${displayName}">Sample title</title>
+    </head>
+
+    <body>
+        <h1 data-th-text="${displayName} + ' - with regions'">Sample header</h1>
+        <div data-portal-region="main">
+            <th:block data-th-if="${mainRegion}"
+                      data-th-each="component : ${mainRegion.components}">
+                <th:block data-portal-component="${component.path}"></th:block>
+            </th:block>
+        </div>
+    </body>
+</html>

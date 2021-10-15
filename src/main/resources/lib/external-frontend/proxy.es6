@@ -8,15 +8,17 @@ const { parseFrontendUrl, parseFrontendRequestPath } = require("./parsing");
 
 
 
-const errorResponse = function(url, status, message) {
-    const msg = `Failed to fetch from frontend: ${url} - ${status}: ${message}`;
+const errorResponse = function(url, status, message, req) {
     if (status >= 400) {
+        const msg = url
+            ? `Not fetched from frontend (${url}): ${status} - ${message}`
+            : `Proxy (${req.url}) responded: ${status} - ${message}`;
         log.error(msg);
     }
 
     return {
-        contentType: 'text/html',
-        body: `<div>${msg}</div>`,
+        contentType: 'text/plain',
+        body: message,
         status,
     };
 };
@@ -27,6 +29,10 @@ const errorResponse = function(url, status, message) {
 // and uses httpClientLib to make the same request from the frontend, whether its rendered HTML or frontend assets.
 const proxy = function(req) {
 
+    if (req.branch !== 'draft') {
+        return errorResponse(null, 400, 'Frontend proxy only available at the draft branch.', req);
+    }
+
     const { frontendRequestPath, xpSiteUrl, error } = parseFrontendRequestPath(req);
     if (error) {
         return {
@@ -34,7 +40,7 @@ const proxy = function(req) {
         };
     }
 
-/*
+    /*
     const { FROM_XP_PARAM } = require('./connection-config');
     const isLoopback = req.params[FROM_XP_PARAM];
     if (isLoopback) {
@@ -45,7 +51,7 @@ const proxy = function(req) {
             status: 200,
         };
     }
-*/
+    */
 
     const frontendUrl = parseFrontendUrl(req, frontendRequestPath);
 
@@ -54,9 +60,11 @@ const proxy = function(req) {
             url: frontendUrl,
             // contentType: 'text/html',
             connectionTimeout: 5000,
-/*            headers: {
+            /*
+            headers: {
                 //secret: "it's not a secret anymore!"
-            },*/
+            },
+            */
             body: null, // JSON.stringify({ variables: {} }),
             followRedirects: req.mode !== 'edit',
         });

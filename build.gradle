@@ -49,6 +49,8 @@ task compileLib(type: NodeTask) {
 compileLib.dependsOn += npmInstall
 jar.dependsOn += 'compileLib'
 
+
+
 task compileService(type: NodeTask) {
     group 'enonic xp'
 
@@ -60,3 +62,19 @@ task compileService(type: NodeTask) {
 }
 compileService.dependsOn += npmInstall
 jar.dependsOn += 'compileService'
+
+
+
+task compileXP(type: NodeTask) {
+    group 'enonic xp'
+    description 'Babel-compile Enonic XP ES6 source files (important: ignoring JSX components since they are left to react4xp)'
+
+    script = file('node_modules/@babel/cli/bin/babel.js')
+    args = ["src/main/resources", "--out-dir", "build/resources/main", "--ignore", "**/*.jsx"]      // <-- Ignoring JSX in the XP structure is important!
+
+    inputs.dir 'src/main/resources'
+    outputs.dir("build/resources/main")
+}
+compileXP.dependsOn += npmInstall
+jar.dependsOn += 'compileXP'
+

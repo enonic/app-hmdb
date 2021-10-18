@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<content-type
-    xmlns="urn:enonic:xp:model:1.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:enonic:xp:model:1.0 https://raw.githubusercontent.com/enonic/xp/master/modules/core/core-api/src/main/resources/META-INF/xsd/model.xsd">
-  <!-- XSD reference above provides auto-completion in most editors -->
+<content-type xmlns="urn:enonic:xp:model:1.0">
   <display-name>Movie</display-name>
   <description>Cinematic films</description>
   <super-type>base:structured</super-type>

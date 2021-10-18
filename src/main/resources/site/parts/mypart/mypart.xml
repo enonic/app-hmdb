@@ -1,0 +1,27 @@
+<part xmlns="urn:enonic:xp:model:1.0">
+    <display-name>My part</display-name>
+    <description>Part with image and rich text config</description>
+    <form>
+        <input name="myText" type="TextLine">
+            <label>My TextLine</label>
+            <occurrences minimum="1" maximum="1"/>
+        </input>
+        <input name="myImage" type="ImageSelector">
+            <label>My Image</label>
+            <occurrences minimum="0" maximum="1"/>
+            <config>
+                <allowPath>${site}/*</allowPath>
+                <treeMode>true</treeMode>
+                <hideToggleIcon>true</hideToggleIcon>
+            </config>
+        </input>
+        <input name="myHtml" type="HtmlArea">
+            <label>My HtmlArea</label>
+            <default><h3>Enter description here</h3></default>
+            <config>
+                <include>*</include>
+                <allowHeadings>h2 h4 h6</allowHeadings>
+            </config>
+        </input>
+    </form>
+</part>

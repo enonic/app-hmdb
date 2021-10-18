@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type xmlns="urn:enonic:xp:model:1.0">
+    <display-name>Components-test</display-name>
+    <description>Test WYSIWYG content</description>
+    <super-type>base:structured</super-type>
+    <form />
+</content-type>

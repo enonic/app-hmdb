@@ -1,4 +1,6 @@
+const contentLib = require('/lib/xp/content');
 const guillotineLib = require('/lib/guillotine');
+const graphQlLib = require('/lib/graphql');
 const graphqlPlaygroundLib = require('/lib/graphql-playground');
 
 //──────────────────────────────────────────────────────────────────────────────
@@ -37,18 +39,23 @@ exports.get = function (req) {
     };
 };
 
+//-----------------------------------------------------------------------
+
+
+
+var schema = guillotineLib.createSchema();
+
+
+
+
+
 exports.post = function (req) {
     let input = JSON.parse(req.body);
-
-    let params = {
-        query: input.query,
-        variables: input.variables
-    };
 
     return {
         contentType: 'application/json',
         headers: CORS_HEADERS,
-        body: guillotineLib.execute(params)
+        body: JSON.stringify(graphQlLib.execute(schema, input.query, input.variables))
     };
 };
 

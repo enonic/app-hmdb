@@ -8,13 +8,11 @@
       <label>Teaser</label>
       <items>
         <input name="coverimage" type="ImageSelector">
-          <!-- @description[no]: Velg et bilde med innholdsvelgeren. -->
-          <!-- @description[en]: Select an image using the content selector. -->
           <label i18n="article.coverimage">Cover image</label>
           <occurrences minimum="0" maximum="1"/>
         </input>
         <input name="preface" type="TextArea">
-          <label i18n="article.preface">Ingress</label>
+          <label i18n="article.preface">Preface</label>
           <config>
             <max-length>300</max-length>
           </config>
@@ -26,14 +24,14 @@
       <label>Body</label>
       <items>
         <input name="author" type="TextLine">
-          <label i18n="article.byline">Author byline</label>
+          <label i18n="article.author">Author byline</label>
           <occurrences minimum="0" maximum="1"/>
         </input>
         <option-set name="blocks">
-          <label i18n="article.block">Content blocks</label>
+          <label i18n="article.blocks">Content blocks</label>
           <expanded>true</expanded>
           <occurrences minimum="1" maximum="0"/>
-          <help-text>Compose your article from a selection of blocks</help-text>
+          <help-text i18n="article.blocks.help">Compose your article from a selection of blocks</help-text>
           <options minimum="1" maximum="1">
             <option name="text">
               <label i18n="article.text">Text</label>
@@ -53,12 +51,17 @@
               <help-text>Add panels with images and text for a scrolling story</help-text>
               <items>
                 <item-set name="panel">
-                  <label i18n="article.image">Panel</label>
+                  <label i18n="article.storypanel">Panel</label>
                   <occurrences minimum="1" maximum="5"/>
                   <items>
                     <input name="image" type="MediaSelector">
-                      <label i18n="article.choose">Media</label>
+                      <label i18n="article.media">Media</label>
+                      <help-text>Select image or video for the panel</help-text>
                       <occurrences minimum="1" maximum="1"/>
+                      <config>
+                        <allow-content-type>media:image</allow-content-type>
+                        <allow-content-type>media:video</allow-content-type>
+                      </config>
                     </input>
                     <input name="storyline" type="TextArea">
                       <label i18n="article.storyline">Tekst</label>
@@ -73,11 +76,11 @@
               <help-text>Big image with text in front of it</help-text>
               <items>
                 <input name="image" type="ImageSelector">
-                  <label i18n="article.choose">Image</label>
+                  <label i18n="article.image">Image</label>
                   <occurrences minimum="1" maximum="1"/>
                 </input>
                 <input name="text" type="TextArea">
-                  <label i18n="article.text">Text in front of image</label>
+                  <label i18n="article.bannertext">Text in front of image</label>
                   <indexed>true</indexed>
                   <config>
                     <max-length>80</max-length>
@@ -87,15 +90,15 @@
               </items>
             </option>
             <option name="quote">
-              <label i18n="quote">Quote</label>
+              <label i18n="article.quote">Quote</label>
               <help-text>Choose this block to add a highlighted quote</help-text>
               <items>
                 <input name="text" type="TextArea">
-                  <label i18n="article.quote">Quote text</label>
+                  <label i18n="article.quote">Quote</label>
                   <occurrences minimum="1" maximum="1"/>
                 </input>
                 <input name="byline" type="TextArea">
-                  <label i18n="article.byline">Quotee</label>
+                  <label i18n="article.quoted">Quoted by</label>
                   <occurrences minimum="0" maximum="1"/>
                 </input>
               </items>

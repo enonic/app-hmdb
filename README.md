@@ -13,6 +13,7 @@ To quickly build and deploy this app locally using Enonic CLI
 
 | Version       | XP version |
 | ------------- | ---------- |
+| 2.3.0+        | 7.7.0 |
 | 1.1.1	        | 7.3.1 |
 | 1.1.0	        | 7.3.1 |
 | 1.0.1	        | 7.3.1 |
@@ -23,3 +24,10 @@ To quickly build and deploy this app locally using Enonic CLI
 ### 1.0.0
 
 * Initial release
+
+### 2.3.0
+
+* Updated to use Guillotine-lib 5.2.1
+* Added article content type using "option set blocks"
+* Added phrases.properties files to demonstrate use of property files
+* Added spotlight x-data to demonstrate extending of media:image

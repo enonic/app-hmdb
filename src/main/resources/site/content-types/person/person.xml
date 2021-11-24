@@ -16,9 +16,5 @@
       <label>Birth Date</label>
        <occurrences minimum="0" maximum="1"/>
     </input>
-    <input type="HtmlArea" name="document">
-      <label>Document</label>
-       <occurrences minimum="0" maximum="1"/>
-    </input>    
   </form>
 </content-type>

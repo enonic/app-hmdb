@@ -1,8 +1,9 @@
-var projectLib = require('/lib/xp/project');
-var contextLib = require('/lib/xp/context');
-var clusterLib = require('/lib/xp/cluster');
+const projectLib = require('/lib/xp/project');
+const contextLib = require('/lib/xp/context');
+const clusterLib = require('/lib/xp/cluster');
+const exportLib = require('/lib/xp/export');
 
-var projectData = {
+const projectData = {
     id: 'hmdb',
     displayName: 'Headless Demo',
     description: 'Headless Movie DB sample content',
@@ -12,11 +13,12 @@ var projectData = {
     }
 }
 
-var runInContext = function(callback) {
-    var result;
+const runInContext = function(callback) {
+    let result;
     try {
         result = contextLib.run({
-            principals: ["role:system.admin"]
+            principals: ["role:system.admin"],
+            repository: 'com.enonic.cms.' + projectData.id
         }, callback);
     } catch (e) {
         log.info('Error: ' + e.message);
@@ -25,19 +27,19 @@ var runInContext = function(callback) {
     return result;
 }
 
-var createProject = function() {
+const createProject = function() {
     return projectLib.create(projectData);
 }
 
-var getProject = function() {
+const getProject = function() {
     return projectLib.get({
         id: projectData.id
     });
 }
 
-var initialize = function() {
+const initialize = function() {
 
-    var project = runInContext(getProject);
+    let project = runInContext(getProject);
 
     if (!project) {
         log.info('Project "' + projectData.id + '" not found. Creating...');
@@ -49,7 +51,7 @@ var initialize = function() {
     }
 
     if (project) {
-        createContent();
+        runInContext(createContent);
     } else {
         log.error('Project "' + projectData.id + '" failed to be created');
     }
@@ -57,9 +59,30 @@ var initialize = function() {
 };
 
 function createContent() {
-    var bean = __.newBean('com.enonic.app.hmdb.initializer.CreateContent');
-    bean.projectName = projectData.id;
-    return __.toNativeObject(bean.execute());
+    let importNodes = exportLib.importNodes({
+        source: resolve('/import'),
+        targetNodePath: '/content',
+        xslt: resolve('/import/replace_app.xsl'),
+        xsltParams: {
+            applicationId: app.name
+        },
+        includeNodeIds: true
+    });
+    log.info('-------------------');
+    log.info('Imported nodes:');
+    importNodes.addedNodes.forEach(element => log.info(element));
+    log.info('-------------------');
+    log.info('Updated nodes:');
+    importNodes.updatedNodes.forEach(element => log.info(element));
+    log.info('-------------------');
+    log.info('Imported binaries:');
+    importNodes.importedBinaries.forEach(element => log.info(element));
+    log.info('-------------------');
+    if (importNodes.importErrors.length !== 0) {
+        log.warning('Errors:');
+        importNodes.importErrors.forEach(element => log.warning(element.message));
+        log.info('-------------------');
+    }
 }
 
 if (clusterLib.isMaster()) {

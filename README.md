@@ -13,6 +13,7 @@ To quickly build and deploy this app locally using Enonic CLI
 
 | Version       | XP version |
 | ------------- | ---------- |
+| 2.5.0         | 7.8.0 |
 | 2.4.1         | 7.7.0 |
 | 2.4.0         | 7.7.0 |
 | 2.3.0         | 7.7.0 |
@@ -29,9 +30,10 @@ To quickly build and deploy this app locally using Enonic CLI
 
 ## Changelog
 
-### 1.0.0
+### 2.5.0
 
-* Initial release
+* Lib-export used to import content
+* Created its own project on startup
 
 ### 2.3.0
 
@@ -39,3 +41,9 @@ To quickly build and deploy this app locally using Enonic CLI
 * Added article content type using "option set blocks"
 * Added phrases.properties files to demonstrate use of property files
 * Added spotlight x-data to demonstrate extending of media:image
+
+### 1.0.0
+
+* Initial release
+
+

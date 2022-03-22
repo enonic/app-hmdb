@@ -1,7 +1,8 @@
-const projectLib = require('/lib/xp/project');
 const contextLib = require('/lib/xp/context');
 const clusterLib = require('/lib/xp/cluster');
 const exportLib = require('/lib/xp/export');
+const projectLib = require('/lib/xp/project');
+const taskLib = require('/lib/xp/task');
 
 const projectData = {
     id: 'hmdb',
@@ -37,25 +38,32 @@ const getProject = function() {
     });
 }
 
-const initialize = function() {
-
-    let project = runInContext(getProject);
-
-    if (!project) {
-        log.info('Project "' + projectData.id + '" not found. Creating...');
-        project = runInContext(createProject);
-
-        if (project) {
-            log.info('Project "' + projectData.id + '" successfully created');
+const initialize = function () {
+    runInContext(() => {
+        const project = getProject();
+        if (!project) {
+            taskLib.executeFunction({
+                description: 'Importing HMDB content',
+                func: initProject
+            });
         }
-    }
+        else {
+            log.debug(`Project ${project.id} exists, skipping import`);
+        }
+    });
+};
+
+const initProject = function() {
+    // log.info('Project "' + projectData.id + '" not found. Creating...');
+    const project = createProject();
 
     if (project) {
-        runInContext(createContent);
-    } else {
+        log.info('Project "' + projectData.id + '" successfully created');
+        createContent();
+    }
+    else {
         log.error('Project "' + projectData.id + '" failed to be created');
     }
-
 };
 
 function createContent() {

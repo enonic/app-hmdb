@@ -13,6 +13,8 @@ To quickly build and deploy this app locally using Enonic CLI
 
 | Version       | XP version |
 | ------------- | ---------- |
+| 2.7.0         | 7.8.0 |
+| 2.6.0         | 7.8.0 |
 | 2.5.0         | 7.8.0 |
 | 2.4.1         | 7.7.0 |
 | 2.4.0         | 7.7.0 |

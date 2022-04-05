@@ -4,7 +4,7 @@ Demonstration app with sample data, combined with XP's headless API
 
 ## Quick test
 
-To quickly build and deploy this app locally using Enonic CLI
+To quickly build and deploy this app locally
 
 . Clone this Github project: `git clone ...`
 . From project directory: `enonic project deploy`
@@ -13,6 +13,7 @@ To quickly build and deploy this app locally using Enonic CLI
 
 | Version       | XP version |
 | ------------- | ---------- |
+| 3.0.0         | 7.8.0 |
 | 2.7.0         | 7.8.0 |
 | 2.6.0         | 7.8.0 |
 | 2.5.0         | 7.8.0 |
@@ -31,6 +32,15 @@ To quickly build and deploy this app locally using Enonic CLI
 | 1.0.0	        | 7.3.1 |
 
 ## Changelog
+
+### 3.0.0
+
+* Changed API mount point from /api to /_graphql
+* Updated preview and info pages when running in SDK
+
+### 2.7.0
+
+* Updated to Guillotine 5.5.0
 
 ### 2.5.0
 

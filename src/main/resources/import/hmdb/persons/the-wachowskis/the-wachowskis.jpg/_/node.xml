@@ -97,7 +97,7 @@
             <dateTime isNull="true" name="to"/>
         </property-set>
         <property-set name="workflow">
-            <string name="state">IN_PROGRESS</string>
+            <string name="state">READY</string>
             <property-set name="checks"/>
         </property-set>
         <property-set name="data">

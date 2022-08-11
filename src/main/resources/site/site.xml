@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site xmlns="urn:enonic:xp:model:1.0">
-  <x-data name="SoMe" allowContentTypes="person|movie"/>
+  <x-data name="SoMe" allowContentTypes=".*:person|.*:movie"/>
   <x-data name="spotlight" allowContentTypes="media:image"/>
   <form/>
   <mappings>
@@ -8,13 +8,13 @@
       <pattern>/_graphql</pattern>
     </mapping>
     <mapping controller="/controllers/info.js" order="50">
-      <match>type:'portal:site'</match>    
+      <match>type:'portal:site'</match>
     </mapping>
     <mapping controller="/controllers/preview.js" order="50">
-      <match>type:'.*:person'</match>    
+      <match>type:'.*:person'</match>
     </mapping>
     <mapping controller="/controllers/preview.js" order="50">
-      <match>type:'.*:movie'</match>    
+      <match>type:'.*:movie'</match>
     </mapping>
   </mappings>
 </site>

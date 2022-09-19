@@ -13,6 +13,7 @@ To quickly build and deploy this app locally
 
 | Version       | XP version |
 | ------------- | ---------- |
+| 4.0.0         | 7.9.0 |
 | 3.0.0         | 7.8.0 |
 | 2.7.0         | 7.8.0 |
 | 2.6.0         | 7.8.0 |
@@ -32,6 +33,14 @@ To quickly build and deploy this app locally
 | 1.0.0	        | 7.3.1 |
 
 ## Changelog
+
+### 4.0.0
+
+* `ExtraData` type became a dynamic type with fields that are generated based on form descriptors of the x-data and grouped by application key.
+* Naming for `ItemSet` and `OptionSet` types were changed, from:
+  `<applicationKey>_<contentTypeName>_<itemSetLabel>` to `<applicationKey>_<contentTypeName>_<itemSetName>`
+   and
+  `<applicationKey>_<contentTypeName>_<optionSetLabel>` to `<applicationKey>_<contentTypeName>_<optionSetName>`
 
 ### 3.0.0
 

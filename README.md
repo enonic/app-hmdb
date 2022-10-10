@@ -13,6 +13,7 @@ To quickly build and deploy this app locally
 
 | Version | XP version |
 |---------| ---------- |
+| 4.0.4   | 7.9.0 |
 | 4.0.3   | 7.9.0 |
 | 4.0.2   | 7.9.0 |
 | 4.0.1   | 7.9.0 |

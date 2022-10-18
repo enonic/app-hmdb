@@ -4,17 +4,11 @@
   <x-data name="spotlight" allowContentTypes="media:image"/>
   <form/>
   <mappings>
-    <mapping controller="/controllers/graphql.js" order="50">
-      <pattern>/_graphql</pattern>
-    </mapping>
     <mapping controller="/controllers/info.js" order="50">
       <match>type:'portal:site'</match>
     </mapping>
     <mapping controller="/controllers/preview.js" order="50">
-      <match>type:'.*:person'</match>
-    </mapping>
-    <mapping controller="/controllers/preview.js" order="50">
-      <match>type:'.*:movie'</match>
+      <match>type:'.*:person|.*:movie'</match>
     </mapping>
   </mappings>
 </site>

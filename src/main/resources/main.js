@@ -1,4 +1,5 @@
 const contextLib = require('/lib/xp/context');
+const contentLib = require('/lib/xp/content');
 const clusterLib = require('/lib/xp/cluster');
 const exportLib = require('/lib/xp/export');
 const projectLib = require('/lib/xp/project');
@@ -14,7 +15,7 @@ const projectData = {
     }
 }
 
-const runInContext = function(callback) {
+const runInContext = function (callback) {
     let result;
     try {
         result = contextLib.run({
@@ -28,11 +29,11 @@ const runInContext = function(callback) {
     return result;
 }
 
-const createProject = function() {
+const createProject = function () {
     return projectLib.create(projectData);
 }
 
-const getProject = function() {
+const getProject = function () {
     return projectLib.get({
         id: projectData.id
     });
@@ -53,15 +54,15 @@ const initialize = function () {
     });
 };
 
-const initProject = function() {
+const initProject = function () {
     // log.info('Project "' + projectData.id + '" not found. Creating...');
     const project = createProject();
 
     if (project) {
         log.info('Project "' + projectData.id + '" successfully created');
         createContent();
-    }
-    else {
+        publishRoot();
+    } else {
         log.error('Project "' + projectData.id + '" failed to be created');
     }
 };
@@ -90,6 +91,31 @@ function createContent() {
         log.warning('Errors:');
         importNodes.importErrors.forEach(element => log.warning(element.message));
         log.info('-------------------');
+    }
+}
+
+function publishRoot() {
+    const result = contentLib.publish({
+        keys: ['/'],
+        sourceBranch: 'draft',
+        targetBranch: 'master',
+        includeDependencies: false
+    });
+    if (result) {
+        log.info('-------------------');
+        log.info('Published nodes:\n');
+        result.pushedContents.forEach(element => log.info(element));
+        log.info('-------------------');
+        log.info('Deleted nodes:\n');
+        result.deletedContents.forEach(element => log.info(element));
+        log.info('-------------------');
+        if (result.failedContents) {
+            log.warning('Failed nodes:\n');
+            result.failedContents.forEach(element => log.warning(element));
+            log.info('-------------------');
+        }
+    } else {
+        log.warning('Could not publish imported content.');
     }
 }
 

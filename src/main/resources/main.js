@@ -96,10 +96,9 @@ function createContent() {
 
 function publishRoot() {
     const result = contentLib.publish({
-        keys: ['/'],
+        keys: ['/hmdb'],
         sourceBranch: 'draft',
         targetBranch: 'master',
-        includeDependencies: false
     });
     if (result) {
         log.info('-------------------');

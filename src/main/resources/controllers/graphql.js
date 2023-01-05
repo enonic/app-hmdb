@@ -2,7 +2,6 @@ const guillotineLib = require('/lib/guillotine');
 const graphQlLib = require('/lib/graphql');
 const graphqlPlaygroundLib = require('/lib/graphql-playground');
 const httpClient = require('/lib/http-client');
-const page = require('./info.js');
 
 //──────────────────────────────────────────────────────────────────────────────
 // Constants
@@ -117,10 +116,10 @@ function createGoogleBookGraphQLObject(context) {
                 type: graphQlLib.GraphQLString,
             },
             averageRating: {
-                type: graphQlLib.GraphQLInt,
+                type: graphQlLib.GraphQLFloat,
             },
             ratingsCount: {
-                type: graphQlLib.GraphQLInt,
+                type: graphQlLib.GraphQLFloat,
             },
             imageLinks: {
                 type: bookImageLinksType,

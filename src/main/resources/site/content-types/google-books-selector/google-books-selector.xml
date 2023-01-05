@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<content-type>
+  <display-name>Google Books Selector</display-name>
+  <super-type>base:structured</super-type>
+  <form>
+    <input name="googleBooks" type="CustomSelector">
+      <label>Google Books Selector</label>
+      <occurrences minimum="0" maximum="0"/>
+      <config>
+        <service>google-books-selector-service</service>
+      </config>
+    </input>
+  </form>
+</content-type>

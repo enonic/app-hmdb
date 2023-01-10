@@ -1,0 +1,31 @@
+# Endpoint
+# http://localhost:8080/site/hmdb/draft/hmdb/_graphql
+# argument "key" must be replaced by correct content ID/Path
+
+query {
+  guillotine {
+    get(key: "e0d17550-ace2-4057-be55-05cf0a84adb8") {
+      ... on com_enonic_app_hmdb_GoogleBooksSelector {
+        data {
+          googleBooks {
+            id
+            title
+            subtitle
+            authors
+            publisher
+            publishedDate
+            description
+            pageCount
+            language
+            averageRating
+            ratingsCount
+            imageLinks {
+              thumbnail
+            }
+          }
+        }
+      }
+    }
+  }
+}
+

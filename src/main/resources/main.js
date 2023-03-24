@@ -7,8 +7,8 @@ const taskLib = require('/lib/xp/task');
 
 const projectData = {
     id: 'hmdb',
-    displayName: 'Headless Demo',
-    description: 'Headless Movie DB sample content',
+    displayName: 'Headless Movie DB',
+    description: 'Site enabled version of the Movie DB',
     language: 'en',
     readAccess: {
         public: true
@@ -44,7 +44,7 @@ const initialize = function () {
         const project = getProject();
         if (!project) {
             taskLib.executeFunction({
-                description: 'Importing HMDB content',
+                description: 'Importing content',
                 func: initProject
             });
         }
@@ -63,7 +63,7 @@ const initProject = function () {
         createContent();
         publishRoot();
     } else {
-        log.error('Project "' + projectData.id + '" failed to be created');
+        log.error('Project "' + projectData.id + '" creation failed');
     }
 };
 
@@ -77,17 +77,7 @@ function createContent() {
         },
         includeNodeIds: true
     });
-    log.info('-------------------');
-    log.info('Imported nodes:');
-    importNodes.addedNodes.forEach(element => log.info(element));
-    log.info('-------------------');
-    log.info('Updated nodes:');
-    importNodes.updatedNodes.forEach(element => log.info(element));
-    log.info('-------------------');
-    log.info('Imported binaries:');
-    importNodes.importedBinaries.forEach(element => log.info(element));
-    log.info('-------------------');
-    if (importNodes.importErrors.length !== 0) {
+    if (importNodes.importErrors.length > 0) {
         log.warning('Errors:');
         importNodes.importErrors.forEach(element => log.warning(element.message));
         log.info('-------------------');
@@ -100,21 +90,8 @@ function publishRoot() {
         sourceBranch: 'draft',
         targetBranch: 'master',
     });
-    if (result) {
-        log.info('-------------------');
-        log.info('Published nodes:\n');
-        result.pushedContents.forEach(element => log.info(element));
-        log.info('-------------------');
-        log.info('Deleted nodes:\n');
-        result.deletedContents.forEach(element => log.info(element));
-        log.info('-------------------');
-        if (result.failedContents) {
-            log.warning('Failed nodes:\n');
-            result.failedContents.forEach(element => log.warning(element));
-            log.info('-------------------');
-        }
-    } else {
-        log.warning('Could not publish imported content.');
+    if (!result) {
+       log.warning('Could not publish imported content.');
     }
 }
 

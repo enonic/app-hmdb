@@ -1,8 +1,8 @@
 <node>
-    <id>4e77783a-b96e-40bb-a49a-d7904a0097a8</id>
+    <id>86a0243a-2cc2-4233-a117-ea0fb03948df</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2022-04-08T09:25:32.375Z</timestamp>
+    <timestamp>2022-04-08T09:27:35.458Z</timestamp>
     <inheritPermissions>true</inheritPermissions>
     <permissions>
         <principal key="role:cms.project.hmdb.viewer">
@@ -83,14 +83,14 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">Headless Movie Database</string>
-        <string name="type">portal:site</string>
+        <string name="displayName">Movie</string>
+        <string name="type">portal:page-template</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
-        <dateTime name="modifiedTime">2022-04-08T09:25:32.374Z</dateTime>
+        <dateTime name="modifiedTime">2022-04-08T09:27:35.457Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
-        <dateTime name="createdTime">2018-07-02T06:27:56.773Z</dateTime>
+        <dateTime name="createdTime">2022-04-08T09:27:05.346Z</dateTime>
         <property-set name="publish">
             <dateTime isNull="true" name="first"/>
             <dateTime isNull="true" name="from"/>
@@ -101,18 +101,14 @@
             <property-set name="checks"/>
         </property-set>
         <property-set name="data">
-            <string isNull="true" name="description"/>
-            <property-set name="siteConfig">
-                <string name="applicationKey">com.enonic.app.hmdb</string>
-                <property-set name="config"/>
-            </property-set>
+            <string name="supports">com.enonic.app.hmdb:movie</string>
         </property-set>
         <property-set name="components">
             <string name="type">page</string>
             <string name="path">/</string>
             <property-set name="page">
                 <string name="descriptor">com.enonic.app.hmdb:main</string>
-                <boolean name="customized">true</boolean>
+                <boolean name="customized">false</boolean>
                 <property-set name="config">
                     <property-set name="com-enonic-app-hmdb">
                         <property-set name="main"/>
@@ -121,24 +117,12 @@
             </property-set>
         </property-set>
         <property-set name="components">
-            <string name="type">text</string>
+            <string name="type">part</string>
             <string name="path">/main/0</string>
-            <property-set name="text">
-                <string name="value">&lt;h1 style="text-align:center"&gt;The Headless Movie DB&lt;/h1&gt;
-
-&lt;p&gt;This was created using the Text component, and it enables you to create links to other &lt;a href="content://d140bba7-0fa1-44c0-b777-ac6330becaff"&gt;content items&lt;/a&gt;, and links to files - like this &lt;a href="media://download/09b3af0e-6da3-4bcf-88d9-11cbe9c41283"&gt;picture of Lea&lt;/a&gt;. You may also insert images:&lt;/p&gt;
-
-&lt;figure class="editor-align-justify"&gt;&lt;img alt="Samuel and John all dressed up, and ready for action" src="image://c2998dba-c56e-491e-af36-0ffc4a74c67a" style="width:100%" /&gt;
-&lt;figcaption&gt;Mamas best boys&lt;/figcaption&gt;
-&lt;/figure&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
-</string>
+            <property-set name="part">
+                <string name="descriptor">com.enonic.app.hmdb:movie-details</string>
             </property-set>
         </property-set>
-        <reference name="processedReferences">d140bba7-0fa1-44c0-b777-ac6330becaff</reference>
-        <reference name="processedReferences">09b3af0e-6da3-4bcf-88d9-11cbe9c41283</reference>
-        <reference name="processedReferences">c2998dba-c56e-491e-af36-0ffc4a74c67a</reference>
     </data>
     <indexConfigs>
         <analyzer>document_index_default</analyzer>
@@ -150,6 +134,16 @@
             <includeInAllText>false</includeInAllText>
         </defaultConfig>
         <pathIndexConfigs>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>true</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>components.part.config.com-enonic-app-hmdb.movie-details</path>
+            </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
                     <decideByType>false</decideByType>

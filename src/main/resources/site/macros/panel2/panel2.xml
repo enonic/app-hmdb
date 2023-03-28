@@ -1,0 +1,14 @@
+<macro>
+  <display-name>Multi-header panel</display-name>
+  <description>Notification panel with multiple headers</description>
+  <form>
+    <input name="header" type="TextLine">
+      <label>Header</label>
+      <occurrences minimum="0" maximum="0"/>
+    </input>
+    <input name="body" type="TextArea">
+      <label>Text</label>
+      <occurrences minimum="0" maximum="1"/>
+    </input>
+  </form>
+</macro>

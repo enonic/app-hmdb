@@ -25,7 +25,7 @@ dependencies {
     include "com.enonic.xp:lib-content:${xpVersion}"
     include "com.enonic.xp:lib-export:${xpVersion}"
     include "com.enonic.xp:lib-task:${xpVersion}"
-    include "com.enonic.lib:lib-thymeleaf:2.0.2"
+    include "com.enonic.lib:lib-thymeleaf:2.1.0"
 }
 
 repositories {

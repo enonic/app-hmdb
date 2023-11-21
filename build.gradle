@@ -28,6 +28,10 @@ dependencies {
     include "com.enonic.lib:lib-thymeleaf:2.1.0"
 }
 
+tasks.register('dev', Exec) {
+    commandLine './gradlew', 'deploy', '-t'
+}
+
 repositories {
     mavenCentral()
     xp.enonicRepo()

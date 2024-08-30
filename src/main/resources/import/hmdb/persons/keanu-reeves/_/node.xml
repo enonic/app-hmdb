@@ -98,11 +98,26 @@
         </property-set>
         <property-set name="data">
             <reference name="photos">35870699-fcae-4694-a378-0ae610eb0117</reference>
-            <string name="bio">Keanu Charles Reeves, whose first name means "cool breeze over the mountains" in Hawaiian, was born September 2, 1964 in Beirut, Lebanon</string>
+            <string name="bio">&lt;p&gt;Keanu Charles Reeves, whose first name means "cool breeze over the mountains" in Hawaiian, was born September 2, 1964 in Beirut, Lebanon&lt;/p&gt;
+
+&lt;h3&gt;Additional photos&lt;/h3&gt;
+
+&lt;figure class="captioned editor-align-justify editor-image-square editor-width-custom" style="width: 50%;"&gt;&lt;img alt="Reeves in 2015" src="image://8b40fdc9-0dd6-4043-b85b-4ee667eace1c?style=editor-image-square" style="width:100%" /&gt;
+&lt;figcaption&gt;Reeves in 2015&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3&gt;External Links&lt;/h3&gt;
+
+&lt;ul&gt;
+	&lt;li&gt;Keanu Reeves at &lt;a href="https://en.wikipedia.org/wiki/Keanu_Reeves" target="_blank"&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;[filmography/]&lt;/p&gt;
+</string>
             <localDate name="dateofbirth">1964-09-02Z</localDate>
         </property-set>
         <property-set name="x">
-            <property-set name="com-enonic-app-hmdb">
+            <property-set name="com-enonic-app-intro">
                 <property-set name="SoMe">
                     <string name="imdb">https://www.imdb.com/name/nm0000206/</string>
                     <string isNull="true" name="twitter"/>
@@ -110,8 +125,10 @@
                 </property-set>
             </property-set>
         </property-set>
+        <reference name="processedReferences">8b40fdc9-0dd6-4043-b85b-4ee667eace1c</reference>
     </data>
     <indexConfigs>
+        <analyzer>document_index_default</analyzer>
         <defaultConfig>
             <decideByType>true</decideByType>
             <enabled>true</enabled>
@@ -139,6 +156,19 @@
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
                 <path>x.*</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <indexValueProcessors>
+                        <indexValueProcessor>htmlStripper</indexValueProcessor>
+                    </indexValueProcessors>
+                </indexConfig>
+                <path>data.bio</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>

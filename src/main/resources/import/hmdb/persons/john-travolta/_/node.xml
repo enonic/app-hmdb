@@ -98,7 +98,7 @@
         </property-set>
         <property-set name="data">
             <reference name="photos">2aa066c8-408a-41a8-82b3-19156da75636</reference>
-            <string name="bio">ohn Joseph Travolta was born in Englewood, New Jersey, one of six children of Helen Travolta (née Helen Cecilia Burke) and Salvatore/Samuel J. Travolta</string>
+            <string name="bio">John Joseph Travolta was born in Englewood, New Jersey, one of six children of Helen Travolta (née Helen Cecilia Burke) and Salvatore/Samuel J. Travolta</string>
             <localDate name="dateofbirth">1954-02-18Z</localDate>
         </property-set>
         <property-set name="x">

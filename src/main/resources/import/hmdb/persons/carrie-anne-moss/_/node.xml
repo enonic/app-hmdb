@@ -98,7 +98,7 @@
         </property-set>
         <property-set name="data">
             <reference name="photos">1ebcff18-2d21-47b2-8771-44f00778c47a</reference>
-            <string name="bio">arrie-Anne Moss was born on August 21, 1967, in Vancouver, British Columbia, the youngest of two children of Barbara and Melvyn Moss</string>
+            <string name="bio">Carrie-Anne Moss was born on August 21, 1967, in Vancouver, British Columbia, the youngest of two children of Barbara and Melvyn Moss</string>
             <localDate name="dateofbirth">1967-08-21Z</localDate>
         </property-set>
         <property-set name="x">

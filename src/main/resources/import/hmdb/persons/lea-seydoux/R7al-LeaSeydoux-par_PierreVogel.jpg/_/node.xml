@@ -1,8 +1,8 @@
 <node>
-    <id>dfe76f74-e6c1-459c-869a-7702f1974c29</id>
+    <id>05be5762-bb26-4b2f-a8ca-0a445a3513a5</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2024-05-22T09:22:09.350Z</timestamp>
+    <timestamp>2024-09-05T14:24:59.164Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -82,17 +82,17 @@
     </permissions>
     <data>
         <boolean name="valid">true</boolean>
-        <string name="displayName">Lea_Seydoux_Cannes_2013_2</string>
+        <string name="displayName">R7al-LeaSeydoux-par_PierreVogel</string>
         <string name="type">media:image</string>
-        <dateTime name="createdTime">2024-05-22T09:22:09.346Z</dateTime>
+        <dateTime name="createdTime">2024-09-05T14:22:18.588Z</dateTime>
         <string name="creator">user:system:su</string>
         <string name="modifier">user:system:su</string>
-        <dateTime name="modifiedTime">2024-05-22T09:22:09.346Z</dateTime>
+        <dateTime name="modifiedTime">2024-09-05T14:22:18.588Z</dateTime>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
         <property-set name="data">
             <property-set name="media">
-                <string name="attachment">Lea_Seydoux_Cannes_2013_2.jpg</string>
+                <string name="attachment">R7al-LeaSeydoux-par_PierreVogel.jpg</string>
                 <property-set name="focalPoint">
                     <double name="x">0.5</double>
                     <double name="y">0.5</double>
@@ -107,23 +107,23 @@
         <property-set name="x">
             <property-set name="media">
                 <property-set name="imageInfo">
-                    <long name="imageHeight">800</long>
+                    <long name="imageHeight">1595</long>
                     <string name="colorSpace">RGB</string>
                     <string name="contentType">image/jpeg</string>
-                    <long name="imageWidth">664</long>
-                    <long name="pixelSize">531200</long>
-                    <long name="byteSize">78963</long>
+                    <long name="imageWidth">1280</long>
+                    <long name="pixelSize">2041600</long>
+                    <long name="byteSize">563858</long>
                 </property-set>
             </property-set>
         </property-set>
         <property-set name="attachment">
-            <string name="name">Lea_Seydoux_Cannes_2013_2.jpg</string>
+            <string name="name">R7al-LeaSeydoux-par_PierreVogel.jpg</string>
             <string name="label">source</string>
-            <binaryReference name="binary">Lea_Seydoux_Cannes_2013_2.jpg</binaryReference>
+            <binaryReference name="binary">R7al-LeaSeydoux-par_PierreVogel.jpg</binaryReference>
             <string name="mimeType">image/jpeg</string>
             <string isNull="true" name="text"/>
-            <long name="size">78963</long>
-            <string name="sha512">2bcaf2c0175d9a9e038bf4eef9f641dfad125e2620edbcfd0b911e54219fe9650ef4827e263075f1f4b805d2da6912aed28bde0220ac91237d4dd2f9780cf670</string>
+            <long name="size">563858</long>
+            <string name="sha512">1ddfe47d89038d42ffbf05e172de2a7337b34d216778412cff85a6a18f619a555a75825ba7ea47dd0a873c3ae4951d2b1fb9fa5a6ef91261005cf4fe3153b1dd</string>
         </property-set>
     </data>
     <indexConfigs>

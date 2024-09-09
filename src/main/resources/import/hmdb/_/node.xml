@@ -126,7 +126,7 @@
             <property-set name="text">
                 <string name="value">&lt;h1 style="text-align:center"&gt;The Headless Movie DB&lt;/h1&gt;
 
-&lt;p&gt;This was created using the Text component, and it enables you to create links to other &lt;a href="content://d140bba7-0fa1-44c0-b777-ac6330becaff"&gt;content items&lt;/a&gt;, and links to files - like this &lt;a href="media://download/09b3af0e-6da3-4bcf-88d9-11cbe9c41283"&gt;picture of Lea&lt;/a&gt;. You may also insert images:&lt;/p&gt;
+&lt;p&gt;This page was created using the Text component. You can browse the &lt;a href="content://66281d64-089a-48d2-81e1-7838d2b9b903"&gt;Movies&lt;/a&gt; or &lt;a href="content://ff9e01f1-9284-453e-9900-9178104d3258"&gt;Persons&lt;/a&gt; pages, or go directly to the "&lt;a href="content://d140bba7-0fa1-44c0-b777-ac6330becaff"&gt;Pulp Fiction&lt;/a&gt;" movie or &lt;a href="content://a8b374a2-c532-45eb-9aa1-73d1c37cd681"&gt;Léa Seydoux&lt;/a&gt;' biography. You may also insert images:&lt;/p&gt;
 
 &lt;figure class="editor-align-justify"&gt;&lt;img alt="Samuel and John all dressed up, and ready for action" src="image://c2998dba-c56e-491e-af36-0ffc4a74c67a" style="width:100%" /&gt;
 &lt;figcaption&gt;Mamas best boys&lt;/figcaption&gt;
@@ -136,8 +136,10 @@
 </string>
             </property-set>
         </property-set>
+        <reference name="processedReferences">66281d64-089a-48d2-81e1-7838d2b9b903</reference>
+        <reference name="processedReferences">ff9e01f1-9284-453e-9900-9178104d3258</reference>
         <reference name="processedReferences">d140bba7-0fa1-44c0-b777-ac6330becaff</reference>
-        <reference name="processedReferences">09b3af0e-6da3-4bcf-88d9-11cbe9c41283</reference>
+        <reference name="processedReferences">a8b374a2-c532-45eb-9aa1-73d1c37cd681</reference>
         <reference name="processedReferences">c2998dba-c56e-491e-af36-0ffc4a74c67a</reference>
     </data>
     <indexConfigs>

@@ -2,7 +2,7 @@
     <id>906d4748-0360-429f-a563-5809db7fcffc</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.437Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.260Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T06:20:47.996Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">latex-knot-vs-agent-smudge.jpg</string>

@@ -2,7 +2,7 @@
     <id>3a7b833f-3c37-4d55-88ae-cea21c556c68</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.569Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.452Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T06:47:46.379Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">c4b38a24-7857-4a56-bf92-a6bc17369a15</reference>
             <string name="bio">Brad Pittless is a Golden Pump-winner whose memorable role as Tyler Daydern in Inflation Club (1999) cemented his place among Headless Hollywood's most magnetic leading balloons.</string>

@@ -2,7 +2,7 @@
     <id>2d50ddce-444f-474e-821f-83ae63049c97</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.870Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.750Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T06:37:17.135Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">35870699-fcae-4694-a378-0ae610eb0117</reference>
             <string name="bio">&lt;p&gt;Keanu Reefs is a soft-spoken leading balloon whose marker doodle is a single, perfectly-drawn surfboard. He is best known as Knot, the chosen string-puller, in The Latex.&lt;/p&gt;

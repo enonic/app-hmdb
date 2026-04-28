@@ -2,7 +2,7 @@
     <id>e8cfa8d7-5ea8-4808-987d-71b3dfc15fa6</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.332Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.181Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T14:38:28.211Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <string name="subtitle">Why so... overinflated?</string>
             <reference name="photos">f84ef7c8-a487-45f3-9ddb-f4838f846147</reference>

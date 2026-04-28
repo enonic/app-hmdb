@@ -2,7 +2,7 @@
     <id>d417a0fd-fb0a-4e09-9bc4-4a15caf689f8</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.677Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.550Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T15:04:14.156Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">6a932899-143a-4012-927a-f4371c307a78</reference>
             <string name="bio">Christopher Knotlen is a London-born writer-director known for cerebral, non-linear stories and an obsession with how time deflates differently for each balloon on screen.</string>

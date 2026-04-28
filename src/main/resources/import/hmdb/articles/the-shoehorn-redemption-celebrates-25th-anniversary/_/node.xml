@@ -2,7 +2,7 @@
     <id>e50eb377-0436-46f2-978e-cabd85a9bc83</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.101Z</timestamp>
+    <timestamp>2026-04-28T13:20:06.893Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -86,15 +86,12 @@
         <string name="type">com.enonic.app.hmdb:article</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
-        <dateTime name="modifiedTime">2021-11-23T10:43:01.506Z</dateTime>
+        <dateTime name="modifiedTime">2026-04-28T13:20:02.991Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2021-11-23T10:20:34.541Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="workflow">
             <string name="state">READY</string>
-            <property-set name="checks"/>
         </property-set>
         <property-set name="data">
             <property-set name="blocks">
@@ -175,7 +172,7 @@
                 </property-set>
                 <property-set name="banner">
                     <reference name="image">fa8182ae-6d0e-457b-bed9-c6437d63c16e</reference>
-                    <string name="text">Tim Ribbons and Morgan Floatman seek redemption with the help of a smuggled shoehorn</string>
+                    <string name="text">Tim Ribbons and Morgan Floatman seek redemption</string>
                 </property-set>
                 <property-set name="quote">
                     <string isNull="true" name="text"/>
@@ -229,9 +226,11 @@
         </property-set>
         <reference name="processedReferences">1aacc7e5-808b-4917-8636-bbe27078dba5</reference>
         <reference name="processedReferences">98a8aaa1-dd88-4463-9d34-2c1de34a0e70</reference>
+        <reference name="processedReferences">6414dc62-a3a1-4772-961f-06cb85b1bbb7</reference>
+        <reference name="processedReferences">0c569592-9d20-4db4-b78f-ee75c3e6c8c5</reference>
+        <reference name="processedReferences">d925e2e1-1b16-4538-a92b-7bac8b3200e1</reference>
     </data>
     <indexConfigs>
-        <analyzer>document_index_default</analyzer>
         <defaultConfig>
             <decideByType>true</decideByType>
             <enabled>true</enabled>
@@ -342,6 +341,19 @@
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
                 <path>language</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <languages>
+                        <language>en</language>
+                    </languages>
+                </indexConfig>
+                <path>displayname</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>

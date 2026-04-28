@@ -2,7 +2,7 @@
     <id>d24cf98f-47be-4fcf-a801-3b8d87f571ab</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:03.124Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.943Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T15:59:01.944Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">b5124269-f25f-46a4-89e3-551e66115d8e</reference>
             <reference name="photos">3eee4043-5e71-4422-8f20-549c1629a76c</reference>

@@ -2,7 +2,7 @@
     <id>eb4ff503-0c31-46ca-a6bb-0d1a0db2203c</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.551Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.377Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T15:39:00.895Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">bob-gondola.jpg</string>

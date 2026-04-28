@@ -2,7 +2,7 @@
     <id>8d47792f-0ae6-4d74-a6e4-bab0e8d2374b</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:03.329Z</timestamp>
+    <timestamp>2026-04-28T09:31:17.084Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T05:58:18.292Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">uma-tieoffman.jpg</string>

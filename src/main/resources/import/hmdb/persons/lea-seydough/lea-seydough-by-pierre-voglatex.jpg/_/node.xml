@@ -2,7 +2,7 @@
     <id>05be5762-bb26-4b2f-a8ca-0a445a3513a5</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.977Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.851Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -124,8 +124,6 @@
             <string isNull="true" name="text"/>
             <long name="size">516782</long>
             <string name="sha512">0b3ad20e79d0e33067ec00c0b3f68605068b7d75fc42372bc2bb2ecdd314a40a97f3ce4f4d921c7646193fdccd3cd1d5f970854736e33793c52e75816334fdfc</string>
-        </property-set>
-        <property-set name="publish">
         </property-set>
     </data>
     <indexConfigs>

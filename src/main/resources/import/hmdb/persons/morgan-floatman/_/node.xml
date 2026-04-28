@@ -2,7 +2,7 @@
     <id>6414dc62-a3a1-4772-961f-06cb85b1bbb7</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:03.051Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.909Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T15:33:45.160Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">7ab1f76a-69a1-490f-b505-6eb6773c7cec</reference>
             <string name="bio">Morgan Floatman is renowned for his soothing baritone — even more remarkable given that his head is a single, large, slowly-rotating balloon. Frequent collaborator with Frank Daraballoon.</string>

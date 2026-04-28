@@ -2,7 +2,7 @@
     <id>0c569592-9d20-4db4-b78f-ee75c3e6c8c5</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:03.273Z</timestamp>
+    <timestamp>2026-04-28T09:31:17.036Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T11:49:30.346Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">dcf977a9-4ede-470c-a446-189214b40a96</reference>
             <string name="bio">Tim Ribbons is a tall, soft-spoken leading balloon whose marker doodle is a curled length of pale ribbon. He is best known for his patient, two-decade tunneling work in The Shoehorn Redemption.</string>

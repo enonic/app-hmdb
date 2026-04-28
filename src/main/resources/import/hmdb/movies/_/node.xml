@@ -2,7 +2,7 @@
     <id>66281d64-089a-48d2-81e1-7838d2b9b903</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.120Z</timestamp>
+    <timestamp>2026-04-28T09:31:15.991Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T06:33:47.001Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="workflow">
             <string name="state">READY</string>
             <property-set name="checks"/>

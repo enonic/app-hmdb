@@ -2,7 +2,7 @@
     <id>bec716a3-f47b-47ba-a418-23de5c3d7422</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.537Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.361Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T15:37:23.648Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">eb4ff503-0c31-46ca-a6bb-0d1a0db2203c</reference>
             <string name="bio">Bob Gondola is a Headless Hollywood character actor whose stern, square-shouldered balloon (always inflated to a precise 1.2 atmospheres) made him the go-to choice for tyrannical wardens and humorless bureaucrats.</string>

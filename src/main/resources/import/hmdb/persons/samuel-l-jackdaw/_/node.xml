@@ -2,7 +2,7 @@
     <id>6d31fc67-d31b-4581-b891-5307dcd18aac</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:03.182Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.985Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T05:59:09.371Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">1c077183-2322-4c02-b236-3cb28046c677</reference>
             <string name="bio">Samuel L. Jackdaw is an American producer and highly prolific leading balloon, having appeared in over 100 Headless Hollywood films. His marker doodle is a wallet inscribed BAD INFLATER.</string>

@@ -2,7 +2,7 @@
     <id>37f61228-3e33-4763-92db-06d5b901c862</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.363Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.213Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T14:54:00.784Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">the-jokeloon-vs-battman.jpg</string>

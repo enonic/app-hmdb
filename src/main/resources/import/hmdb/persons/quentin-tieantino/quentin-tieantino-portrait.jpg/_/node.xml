@@ -2,7 +2,7 @@
     <id>b5124269-f25f-46a4-89e3-551e66115d8e</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:03.149Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.957Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T16:00:34.828Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">quentin-tieantino-portrait.jpg</string>

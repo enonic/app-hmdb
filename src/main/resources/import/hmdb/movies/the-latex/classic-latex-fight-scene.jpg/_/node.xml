@@ -2,7 +2,7 @@
     <id>5f1daa61-c95f-4c41-8769-cd0103b010b2</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.419Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.244Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T06:20:47.998Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">classic-latex-fight-scene.jpg</string>

@@ -2,7 +2,7 @@
     <id>98338633-9b88-426c-a548-dcdbd73066fc</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.645Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.518Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T15:24:34.560Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">fcb83acd-f85f-4355-bf89-9761889b8404</reference>
             <string name="bio">Christian Balloon is a Welsh leading balloon famous for radically reshaping his head between roles - inflating, deflating, and re-tying as required, sometimes in the same week.</string>

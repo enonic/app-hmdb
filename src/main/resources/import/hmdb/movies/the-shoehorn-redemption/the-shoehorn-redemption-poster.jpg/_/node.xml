@@ -2,7 +2,7 @@
     <id>940f4ad6-4c1c-4d7b-85a2-cddda5900ed7</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.504Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.329Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T07:42:15.055Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <property-set name="media">
                 <string name="attachment">the-shoehorn-redemption-poster.jpg</string>

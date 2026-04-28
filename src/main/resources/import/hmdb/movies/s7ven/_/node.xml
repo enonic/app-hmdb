@@ -2,7 +2,7 @@
     <id>1cb3dbf4-31d1-4e8a-816a-8cf891de7ad6</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.223Z</timestamp>
+    <timestamp>2026-04-28T10:48:43.629Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -86,16 +86,16 @@
         <string name="type">com.enonic.app.hmdb:movie</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
-        <dateTime name="modifiedTime">2018-07-03T06:50:45.284Z</dateTime>
+        <dateTime name="modifiedTime">2026-04-28T10:48:33.057Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T06:42:34.758Z</dateTime>
-        <property-set name="publish">
+        <property-set name="workflow">
+            <string name="state">READY</string>
         </property-set>
         <property-set name="data">
             <string name="subtitle">What's in the box?</string>
             <reference name="photos">6ca58af1-6810-4fae-b51b-f70e01fc4c17</reference>
-            <reference name="photos">5cb115db-eb1c-4314-8376-2cb711dea5bd</reference>
             <string name="trailer">https://youtu.be/znmZoVkCjpI</string>
             <string name="abstract">Two balloon-headed detectives hunt a serial killer who is using the seven deadly sins to deflate his victims one balloon at a time. The desert finale is famously breathless.</string>
             <localDate name="release">1995-09-22Z</localDate>
@@ -120,6 +120,7 @@
         </property-set>
     </data>
     <indexConfigs>
+        <analyzer>document_index_default</analyzer>
         <defaultConfig>
             <decideByType>true</decideByType>
             <enabled>true</enabled>
@@ -217,6 +218,19 @@
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
                 <path>language</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <languages>
+                        <language>en</language>
+                    </languages>
+                </indexConfig>
+                <path>displayname</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>

@@ -2,7 +2,7 @@
     <id>7c27c93b-cbbf-4a0b-8a54-22d99b83a1e4</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.602Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.485Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T06:06:10.849Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">cbad75b1-7048-46a4-85b1-99b923da139c</reference>
             <string name="bio">Bruce Wheezis is a leading balloon known for playing wisecracking, slow-leak heroes whose heads gradually crumple over the course of any decent action sequence. His marker doodle is a tiny, exhausted vest.</string>

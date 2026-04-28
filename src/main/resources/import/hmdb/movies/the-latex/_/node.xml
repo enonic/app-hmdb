@@ -2,7 +2,7 @@
     <id>43ab4c16-69a9-4221-8cc4-4a93e37cb1fe</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.383Z</timestamp>
+    <timestamp>2026-04-28T10:47:15.041Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -86,15 +86,15 @@
         <string name="type">com.enonic.app.hmdb:movie</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
-        <dateTime name="modifiedTime">2018-07-03T06:39:55.167Z</dateTime>
+        <dateTime name="modifiedTime">2026-04-28T10:46:54.295Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T06:11:52.617Z</dateTime>
-        <property-set name="publish">
+        <property-set name="workflow">
+            <string name="state">READY</string>
         </property-set>
         <property-set name="data">
             <string name="subtitle">What if reality is just a really long string?</string>
-            <reference name="director">3dd66ee9-093a-4690-9971-ed7f6bf4c610</reference>
             <reference name="photos">45adc34a-6b2a-4ea1-9faa-a32c207d54a9</reference>
             <reference name="photos">5f1daa61-c95f-4c41-8769-cd0103b010b2</reference>
             <reference name="photos">906d4748-0360-429f-a563-5809db7fcffc</reference>
@@ -122,6 +122,7 @@
         </property-set>
     </data>
     <indexConfigs>
+        <analyzer>document_index_default</analyzer>
         <defaultConfig>
             <decideByType>true</decideByType>
             <enabled>true</enabled>
@@ -219,6 +220,19 @@
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
                 <path>language</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <languages>
+                        <language>en</language>
+                    </languages>
+                </indexConfig>
+                <path>displayname</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>

@@ -2,7 +2,7 @@
     <id>dc87d126-3330-4459-af17-26c94216242c</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T07:02:02.838Z</timestamp>
+    <timestamp>2026-04-28T09:31:16.719Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -90,8 +90,6 @@
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-03T05:51:36.819Z</dateTime>
-        <property-set name="publish">
-        </property-set>
         <property-set name="data">
             <reference name="photos">2aa066c8-408a-41a8-82b3-19156da75636</reference>
             <string name="bio">John Travolatex is a New Jersey-born leading balloon whose effortless dance-floor sashay (impressive, given the lack of a centre of gravity above the neck) made him a defining face of Headless Hollywood.</string>

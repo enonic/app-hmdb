@@ -2,40 +2,15 @@
     <id>0dd67ed2-3c04-440d-93c9-00a53fb7d9d5</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2022-04-08T09:26:39.231Z</timestamp>
-    <inheritPermissions>true</inheritPermissions>
+    <timestamp>2026-04-28T07:02:01.923Z</timestamp>
     <permissions>
-        <principal key="role:cms.project.hmdb.viewer">
+        <principal key="role:system.everyone">
             <allow type="array">
                 <value>READ</value>
-            </allow>
-            <deny type="array"/>
-        </principal>
-        <principal key="role:cms.project.hmdb.owner">
-            <allow type="array">
-                <value>READ</value>
-                <value>CREATE</value>
-                <value>MODIFY</value>
-                <value>DELETE</value>
-                <value>PUBLISH</value>
-                <value>READ_PERMISSIONS</value>
-                <value>WRITE_PERMISSIONS</value>
             </allow>
             <deny type="array"/>
         </principal>
         <principal key="role:system.admin">
-            <allow type="array">
-                <value>READ</value>
-                <value>CREATE</value>
-                <value>MODIFY</value>
-                <value>DELETE</value>
-                <value>PUBLISH</value>
-                <value>READ_PERMISSIONS</value>
-                <value>WRITE_PERMISSIONS</value>
-            </allow>
-            <deny type="array"/>
-        </principal>
-        <principal key="role:cms.project.hmdb.editor">
             <allow type="array">
                 <value>READ</value>
                 <value>CREATE</value>
@@ -59,9 +34,27 @@
             </allow>
             <deny type="array"/>
         </principal>
-        <principal key="role:cms.project.hmdb.contributor">
+        <principal key="role:cms.project.hmdb.owner">
             <allow type="array">
                 <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.editor">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
             </allow>
             <deny type="array"/>
         </principal>
@@ -74,7 +67,13 @@
             </allow>
             <deny type="array"/>
         </principal>
-        <principal key="role:system.everyone">
+        <principal key="role:cms.project.hmdb.contributor">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.viewer">
             <allow type="array">
                 <value>READ</value>
             </allow>
@@ -92,9 +91,6 @@
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2022-04-08T09:25:49.502Z</dateTime>
         <property-set name="publish">
-            <dateTime isNull="true" name="first"/>
-            <dateTime isNull="true" name="from"/>
-            <dateTime isNull="true" name="to"/>
         </property-set>
         <property-set name="workflow">
             <string name="state">READY</string>
@@ -183,7 +179,7 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-                <path>data.siteConfig.applicationkey</path>
+                <path>data.siteconfig.applicationkey</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -336,7 +332,7 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-                <path>modifiedTime</path>
+                <path>modifiedtime</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -376,7 +372,7 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-                <path>createdTime</path>
+                <path>createdtime</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -400,6 +396,9 @@
             </pathIndexConfig>
         </pathIndexConfigs>
         <allTextIndexConfig>
+            <enabled>true</enabled>
+            <nGram>true</nGram>
+            <fulltext>true</fulltext>
             <languages>
                 <language>en</language>
             </languages>

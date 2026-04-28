@@ -1,6 +1,6 @@
 var portal = require('/lib/xp/portal');
 
-exports.get = function (req) {
+exports.GET = function (req) {
     var title = "Headless Movie Database";
     var heading = "Welcome to the Headless Movie Database";
     var info = "Tip: This preview was created by the file: /src/main/resources/controllers/info.js";

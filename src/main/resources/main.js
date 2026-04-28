@@ -20,7 +20,8 @@ const runInContext = function (callback) {
     try {
         result = contextLib.run({
             principals: ["role:system.admin"],
-            repository: 'com.enonic.cms.' + projectData.id
+            repository: 'com.enonic.cms.' + projectData.id,
+            branch: 'draft'
         }, callback);
     } catch (e) {
         log.info('Error: ' + e.message);
@@ -55,16 +56,17 @@ const initialize = function () {
 };
 
 const initProject = function () {
-    // log.info('Project "' + projectData.id + '" not found. Creating...');
-    const project = createProject();
+    runInContext(() => {
+        const project = createProject();
 
-    if (project) {
-        log.info('Project "' + projectData.id + '" successfully created');
-        createContent();
-        publishRoot();
-    } else {
-        log.error('Project "' + projectData.id + '" creation failed');
-    }
+        if (project) {
+            log.info('Project "' + projectData.id + '" successfully created');
+            createContent();
+            publishRoot();
+        } else {
+            log.error('Project "' + projectData.id + '" creation failed');
+        }
+    });
 };
 
 function createContent() {
@@ -89,12 +91,16 @@ function publishRoot() {
         keys: ['/hmdb'],
         sourceBranch: 'draft',
         targetBranch: 'master',
+        includeChildren: true,
+        includeDependencies: true,
     });
-    if (!result) {
-       log.warning('Could not publish imported content.');
+    if (!result || (result.failedContents && result.failedContents.length > 0)) {
+       log.warning('Could not publish imported content. failed=' + JSON.stringify(result && result.failedContents));
+    } else {
+       log.info('Published ' + (result.pushedContents ? result.pushedContents.length : 0) + ' content items.');
     }
 }
 
-if (clusterLib.isMaster()) {
+if (clusterLib.isLeader()) {
     initialize();
 }

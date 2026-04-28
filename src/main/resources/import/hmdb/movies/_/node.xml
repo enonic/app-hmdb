@@ -2,40 +2,15 @@
     <id>66281d64-089a-48d2-81e1-7838d2b9b903</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2022-04-08T09:25:18.700Z</timestamp>
-    <inheritPermissions>true</inheritPermissions>
+    <timestamp>2026-04-28T07:02:02.120Z</timestamp>
     <permissions>
-        <principal key="role:cms.project.hmdb.viewer">
+        <principal key="role:system.everyone">
             <allow type="array">
                 <value>READ</value>
-            </allow>
-            <deny type="array"/>
-        </principal>
-        <principal key="role:cms.project.hmdb.owner">
-            <allow type="array">
-                <value>READ</value>
-                <value>CREATE</value>
-                <value>MODIFY</value>
-                <value>DELETE</value>
-                <value>PUBLISH</value>
-                <value>READ_PERMISSIONS</value>
-                <value>WRITE_PERMISSIONS</value>
             </allow>
             <deny type="array"/>
         </principal>
         <principal key="role:system.admin">
-            <allow type="array">
-                <value>READ</value>
-                <value>CREATE</value>
-                <value>MODIFY</value>
-                <value>DELETE</value>
-                <value>PUBLISH</value>
-                <value>READ_PERMISSIONS</value>
-                <value>WRITE_PERMISSIONS</value>
-            </allow>
-            <deny type="array"/>
-        </principal>
-        <principal key="role:cms.project.hmdb.editor">
             <allow type="array">
                 <value>READ</value>
                 <value>CREATE</value>
@@ -59,9 +34,27 @@
             </allow>
             <deny type="array"/>
         </principal>
-        <principal key="role:cms.project.hmdb.contributor">
+        <principal key="role:cms.project.hmdb.owner">
             <allow type="array">
                 <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.editor">
+            <allow type="array">
+                <value>READ</value>
+                <value>CREATE</value>
+                <value>MODIFY</value>
+                <value>DELETE</value>
+                <value>PUBLISH</value>
+                <value>READ_PERMISSIONS</value>
+                <value>WRITE_PERMISSIONS</value>
             </allow>
             <deny type="array"/>
         </principal>
@@ -74,7 +67,13 @@
             </allow>
             <deny type="array"/>
         </principal>
-        <principal key="role:system.everyone">
+        <principal key="role:cms.project.hmdb.contributor">
+            <allow type="array">
+                <value>READ</value>
+            </allow>
+            <deny type="array"/>
+        </principal>
+        <principal key="role:cms.project.hmdb.viewer">
             <allow type="array">
                 <value>READ</value>
             </allow>
@@ -92,9 +91,6 @@
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T06:33:47.001Z</dateTime>
         <property-set name="publish">
-            <dateTime isNull="true" name="first"/>
-            <dateTime isNull="true" name="from"/>
-            <dateTime isNull="true" name="to"/>
         </property-set>
         <property-set name="workflow">
             <string name="state">READY</string>
@@ -122,7 +118,7 @@
                 <property-set name="config">
                     <property-set name="com-enonic-app-hmdb">
                         <property-set name="heading">
-                            <string name="heading">Movies - with a customized header</string>
+                            <string name="heading">Films - with a customized header</string>
                         </property-set>
                     </property-set>
                 </property-set>
@@ -153,8 +149,8 @@
             <string name="type">text</string>
             <string name="path">/main/1/right/0</string>
             <property-set name="text">
-                <string name="value">&lt;figure class="editor-align-justify"&gt;&lt;img alt="shawshank-redemption.jpg" src="image://fa8182ae-6d0e-457b-bed9-c6437d63c16e" style="width:100%" /&gt;
-&lt;figcaption&gt;Great movies, and great actors&lt;/figcaption&gt;
+                <string name="value">&lt;figure class="editor-align-justify"&gt;&lt;img alt="The Shoehorn Redemption - balloons quietly dreaming of escape" src="image://fa8182ae-6d0e-457b-bed9-c6437d63c16e" style="width:100%" /&gt;
+&lt;figcaption&gt;Great films, and great balloons&lt;/figcaption&gt;
 &lt;/figure&gt;
 
 &lt;p&gt;&amp;nbsp;&lt;/p&gt;
@@ -211,7 +207,7 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-                <path>data.siteConfig.applicationkey</path>
+                <path>data.siteconfig.applicationkey</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -364,7 +360,7 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-                <path>modifiedTime</path>
+                <path>modifiedtime</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -404,7 +400,7 @@
                     <fulltext>false</fulltext>
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
-                <path>createdTime</path>
+                <path>createdtime</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
@@ -428,6 +424,9 @@
             </pathIndexConfig>
         </pathIndexConfigs>
         <allTextIndexConfig>
+            <enabled>true</enabled>
+            <nGram>true</nGram>
+            <fulltext>true</fulltext>
             <languages>
                 <language>en</language>
             </languages>

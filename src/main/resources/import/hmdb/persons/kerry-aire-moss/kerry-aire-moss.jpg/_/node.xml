@@ -140,7 +140,6 @@
                     <string isNull="true" name="focusDistance"/>
                 </property-set>
                 <property-set name="imageInfo">
-                    <string name="colorSpace">RGB</string>
                     <string name="colorSpace">sRGB</string>
                     <long name="imageWidth">970</long>
                     <long name="imageHeight">545</long>

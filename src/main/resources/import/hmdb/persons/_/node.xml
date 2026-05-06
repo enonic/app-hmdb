@@ -2,7 +2,7 @@
     <id>ff9e01f1-9284-453e-9900-9178104d3258</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T09:31:16.346Z</timestamp>
+    <timestamp>2026-05-05T12:36:16.857Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -91,6 +91,11 @@
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T06:34:50.923Z</dateTime>
         <property-set name="data"/>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:16.857Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
+        </property-set>
     </data>
     <indexConfigs>
         <defaultConfig>

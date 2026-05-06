@@ -2,7 +2,7 @@
     <id>866a4916-ba01-4702-b956-71b6c694790f</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T09:31:15.875Z</timestamp>
+    <timestamp>2026-05-05T12:36:16.355Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -240,6 +240,11 @@
             <string name="tags">pinprick era</string>
             <reference name="spotlight">b909b9d6-0c45-447f-be67-6c2624a1dd31</reference>
             <reference name="spotlight">f29ba9b7-a73a-4767-82db-9da4df952924</reference>
+        </property-set>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:16.355Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
         </property-set>
     </data>
     <indexConfigs>

@@ -2,7 +2,7 @@
     <id>5eb37cb1-b7c8-475d-8978-fa0d4a35f9d3</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T09:31:15.816Z</timestamp>
+    <timestamp>2026-05-05T12:36:16.264Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -95,6 +95,11 @@
             <property-set name="checks"/>
         </property-set>
         <property-set name="data"/>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:16.264Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
+        </property-set>
     </data>
     <indexConfigs>
         <analyzer>document_index_default</analyzer>

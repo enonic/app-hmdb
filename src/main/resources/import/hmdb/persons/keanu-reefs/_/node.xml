@@ -2,7 +2,7 @@
     <id>2d50ddce-444f-474e-821f-83ae63049c97</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T09:31:16.750Z</timestamp>
+    <timestamp>2026-05-05T12:36:17.301Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -120,6 +120,11 @@
             </property-set>
         </property-set>
         <reference name="processedReferences">8b40fdc9-0dd6-4043-b85b-4ee667eace1c</reference>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:17.301Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
+        </property-set>
     </data>
     <indexConfigs>
         <analyzer>document_index_default</analyzer>

@@ -2,7 +2,7 @@
     <id>98338633-9b88-426c-a548-dcdbd73066fc</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T09:31:16.518Z</timestamp>
+    <timestamp>2026-05-05T12:36:17.018Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -103,6 +103,11 @@
                     <string isNull="true" name="instagram"/>
                 </property-set>
             </property-set>
+        </property-set>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:17.018Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
         </property-set>
     </data>
     <indexConfigs>

@@ -2,7 +2,7 @@
     <id>0c569592-9d20-4db4-b78f-ee75c3e6c8c5</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T09:31:17.036Z</timestamp>
+    <timestamp>2026-05-05T12:36:17.656Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -103,6 +103,11 @@
                     <string name="instagram">@realtimrobbins</string>
                 </property-set>
             </property-set>
+        </property-set>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:17.656Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
         </property-set>
     </data>
     <indexConfigs>

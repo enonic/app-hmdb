@@ -2,7 +2,7 @@
     <id>f29ba9b7-a73a-4767-82db-9da4df952924</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T09:31:16.582Z</timestamp>
+    <timestamp>2026-05-05T12:36:17.110Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -99,6 +99,11 @@
             <string name="bio">Daniel Carrigear is a British leading balloon best known for portraying secret agent James Balloon (00-Latex) over five Headless Hollywood blockbusters. His marker doodle is a discreet Walther in profile.</string>
             <localDate name="dateofbirth">1968-03-02Z</localDate>
             <string isNull="true" name="document"/>
+        </property-set>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:17.110Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
         </property-set>
     </data>
     <indexConfigs>

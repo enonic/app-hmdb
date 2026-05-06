@@ -2,7 +2,7 @@
     <id>86a0243a-2cc2-4233-a117-ea0fb03948df</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T09:31:15.849Z</timestamp>
+    <timestamp>2026-05-05T12:36:16.314Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -116,6 +116,11 @@
             <property-set name="part">
                 <string name="descriptor">com.enonic.app.hmdb:movie-details</string>
             </property-set>
+        </property-set>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:16.314Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
         </property-set>
     </data>
     <indexConfigs>

@@ -2,7 +2,7 @@
     <id>b909b9d6-0c45-447f-be67-6c2624a1dd31</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T09:31:16.021Z</timestamp>
+    <timestamp>2026-05-05T12:36:16.507Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -113,6 +113,11 @@
                 <string name="character">Madeleine Sweyne</string>
             </property-set>
             <string name="website">https://www.007.com/no-time-to-die/</string>
+        </property-set>
+        <property-set name="publish">
+            <dateTime name="time">2026-05-05T12:36:16.507Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
         </property-set>
     </data>
     <indexConfigs>

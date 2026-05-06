@@ -2,7 +2,7 @@
     <id>66281d64-089a-48d2-81e1-7838d2b9b903</id>
     <childOrder>modifiedtime DESC</childOrder>
     <nodeType>content</nodeType>
-    <timestamp>2026-04-28T09:31:15.991Z</timestamp>
+    <timestamp>2026-05-06T07:21:34.109Z</timestamp>
     <permissions>
         <principal key="role:system.everyone">
             <allow type="array">
@@ -86,13 +86,17 @@
         <string name="type">base:folder</string>
         <string name="owner">user:system:su</string>
         <string name="language">en</string>
-        <dateTime name="modifiedTime">2022-04-08T09:25:18.699Z</dateTime>
+        <dateTime name="modifiedTime">2026-05-06T07:21:31.743Z</dateTime>
         <string name="modifier">user:system:su</string>
         <string name="creator">user:system:su</string>
         <dateTime name="createdTime">2018-07-02T06:33:47.001Z</dateTime>
+        <property-set name="publish">
+            <dateTime name="first">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="from">2026-05-05T12:36:16.195Z</dateTime>
+            <dateTime name="time">2026-05-06T07:21:34.109Z</dateTime>
+        </property-set>
         <property-set name="workflow">
             <string name="state">READY</string>
-            <property-set name="checks"/>
         </property-set>
         <property-set name="data"/>
         <property-set name="components">
@@ -100,7 +104,7 @@
             <string name="path">/</string>
             <property-set name="page">
                 <string name="descriptor">com.enonic.app.hmdb:main</string>
-                <boolean name="customized">true</boolean>
+                <boolean name="customized">false</boolean>
                 <property-set name="config">
                     <property-set name="com-enonic-app-hmdb">
                         <property-set name="main"/>
@@ -144,21 +148,25 @@
             </property-set>
         </property-set>
         <property-set name="components">
-            <string name="type">text</string>
+            <string name="type">part</string>
             <string name="path">/main/1/right/0</string>
-            <property-set name="text">
-                <string name="value">&lt;figure class="editor-align-justify"&gt;&lt;img alt="The Shoehorn Redemption - balloons quietly dreaming of escape" src="image://fa8182ae-6d0e-457b-bed9-c6437d63c16e" style="width:100%" /&gt;
+            <property-set name="part">
+                <string name="descriptor">com.enonic.app.hmdb:paragraph</string>
+                <property-set name="config">
+                    <property-set name="com-enonic-app-hmdb">
+                        <property-set name="paragraph">
+                            <string name="text">&lt;figure class="editor-align-justify"&gt;&lt;img alt="The Shoehorn Redemption - balloons quietly dreaming of escape" src="image://fa8182ae-6d0e-457b-bed9-c6437d63c16e" style="width:100%" /&gt;
 &lt;figcaption&gt;Great films, and great balloons&lt;/figcaption&gt;
 &lt;/figure&gt;
-
-&lt;p&gt;&amp;nbsp;&lt;/p&gt;
 </string>
+                        </property-set>
+                    </property-set>
+                </property-set>
             </property-set>
         </property-set>
         <reference name="processedReferences">fa8182ae-6d0e-457b-bed9-c6437d63c16e</reference>
     </data>
     <indexConfigs>
-        <analyzer>document_index_default</analyzer>
         <defaultConfig>
             <decideByType>true</decideByType>
             <enabled>true</enabled>
@@ -167,6 +175,29 @@
             <includeInAllText>false</includeInAllText>
         </defaultConfig>
         <pathIndexConfigs>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <indexValueProcessors>
+                        <indexValueProcessor>htmlStripper</indexValueProcessor>
+                    </indexValueProcessors>
+                </indexConfig>
+                <path>components.part.config.com-enonic-app-hmdb.paragraph.text</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>true</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>false</nGram>
+                    <fulltext>false</fulltext>
+                    <includeInAllText>false</includeInAllText>
+                </indexConfig>
+                <path>components.part.config.com-enonic-app-hmdb.paragraph</path>
+            </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>
                     <decideByType>true</decideByType>
@@ -369,6 +400,19 @@
                     <includeInAllText>false</includeInAllText>
                 </indexConfig>
                 <path>language</path>
+            </pathIndexConfig>
+            <pathIndexConfig>
+                <indexConfig>
+                    <decideByType>false</decideByType>
+                    <enabled>true</enabled>
+                    <nGram>true</nGram>
+                    <fulltext>true</fulltext>
+                    <includeInAllText>true</includeInAllText>
+                    <languages>
+                        <language>en</language>
+                    </languages>
+                </indexConfig>
+                <path>displayname</path>
             </pathIndexConfig>
             <pathIndexConfig>
                 <indexConfig>

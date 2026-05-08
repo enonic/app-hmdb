@@ -1,0 +1,9 @@
+kind: "CMS"
+mixins:
+  - name: "com.enonic.app.hmdb:SoMe"
+    allowContentTypes: ".*:person|.*:movie"
+    optional: false
+  - name: "com.enonic.app.hmdb:spotlight"
+    allowContentTypes: "media:image"
+    optional: false
+form: []

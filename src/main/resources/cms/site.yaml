@@ -1,0 +1,8 @@
+kind: "Site"
+mappings:
+  - controller: "/lib/info.js"
+    order: 10
+    match: "type:'portal:site'"
+  - controller: "/lib/preview.js"
+    order: 50
+    match: "type:'(?!media:).*'"

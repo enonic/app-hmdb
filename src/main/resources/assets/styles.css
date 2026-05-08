@@ -1,3 +1,6 @@
+:root {
+    color-scheme: light dark;
+}
 
 body {
     text-align: center;
@@ -14,8 +17,4 @@ img {
   display: block;
   width: 100%;
   margin: 0 auto;
-}
-
-img.banner {
-  max-width: 100%;
 }

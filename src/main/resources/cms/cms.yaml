@@ -1,9 +1,9 @@
 kind: "CMS"
 mixins:
-  - name: "com.enonic.app.hmdb:SoMe"
+  - name: "SoMe"
     allowContentTypes: ".*:person|.*:movie"
     optional: false
-  - name: "com.enonic.app.hmdb:spotlight"
+  - name: "spotlight"
     allowContentTypes: "media:image"
     optional: false
 form: []

@@ -2,6 +2,12 @@ plugins {
     id 'maven-publish'
     id 'com.enonic.defaults' version '2.1.6'
     id 'com.enonic.xp.app'
+    id 'com.github.node-gradle.node' version '7.1.0'
+}
+
+node {
+    download = true
+    version = '22.15.1'
 }
 
 dependencies {
@@ -22,3 +28,33 @@ repositories {
     mavenCentral()
     xp.enonicRepo('dev')
 }
+
+processResources {
+    exclude '**/*.ts'
+    exclude '**/*.tsx'
+    exclude '**/tsconfig*.json'
+    exclude 'types/**'
+}
+
+tasks.register('npmBuild', NpmTask) {
+    args = ['run', '--silent', 'build']
+    dependsOn npmInstall
+    environment = [
+        'FORCE_COLOR': 'true',
+        'NODE_ENV': project.hasProperty('dev') || project.hasProperty('development')
+            ? 'development' : 'production'
+    ]
+    inputs.dir 'src/main/resources'
+    outputs.dir 'build/resources/main'
+    outputs.upToDateWhen { false }
+}
+
+jar.dependsOn npmBuild
+
+tasks.register('npmCheck', NpmTask) {
+    dependsOn npmInstall
+    args = ['run', 'check']
+    environment = ['FORCE_COLOR': 'true']
+}
+
+check.dependsOn npmCheck

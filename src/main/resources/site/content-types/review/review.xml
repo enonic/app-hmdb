@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<content-type xmlns="urn:enonic:xp:model:1.0">
+  <display-name>User's Review</display-name>
+  <description>User's review of a movie</description>
+  <super-type>base:structured</super-type>
+  <form>
+    <input type="TextLine" name="score">
+      <label>Score</label>
+      <help-text>Should contain from 1 to 5 stars emoji (e.g. ★★★★★)</help-text>
+      <occurrences minimum="1" maximum="1" />
+    </input>
+    <input type="HtmlArea" name="content">
+      <label>Review</label>
+      <help-text>Review of the movie, that starts with short summary, followed by list of pros
+        (start with +) and cons (start with -)</help-text>
+      <occurrences minimum="1" maximum="1" />
+      <config>
+        <exclude>NumberedList Outdent Indent SpecialChar Anchor Table PasteModeSwitcher</exclude>
+      </config>
+    </input>
+  </form>
+</content-type>

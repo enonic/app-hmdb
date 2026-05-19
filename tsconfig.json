@@ -1,0 +1,13 @@
+{
+    "include": ["tsup.config.ts"],
+    "compilerOptions": {
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "target": "ES2022",
+        "lib": ["ES2023"],
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "strict": true,
+        "types": ["node"]
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "include": ["**/*.ts"],
+    "compilerOptions": {
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "target": "ES5",
+        "lib": ["ES2015"],
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "forceConsistentCasingInFileNames": true,
+        "skipLibCheck": true,
+        "strict": false,
+        "noImplicitAny": false,
+        "paths": {
+            "/lib/xp/*": ["../../../node_modules/@enonic-types/lib-*"],
+            "/lib/thymeleaf": ["./types/thymeleaf"],
+            "/*": ["./*"]
+        },
+        "types": ["@enonic-types/global"]
+    }
+}

@@ -79,7 +79,7 @@ function createContent() {
         },
         versionAttributes: {
             'content.import': {
-                user: "role:system.admin",
+                user: "user:system:su",
                 optime: new Date().toISOString()
             },
             'vacuum.skip': {}

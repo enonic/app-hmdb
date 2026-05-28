@@ -77,6 +77,13 @@ function createContent() {
         xsltParams: {
             applicationId: app.name
         },
+        versionAttributes: {
+            'content.import': {
+                user: "role:system.admin",
+                optime: new Date().toISOString()
+            },
+            'vacuum.skip': {}
+        },        
         includeNodeIds: true
     });
     if (importNodes.importErrors.length > 0) {

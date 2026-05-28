@@ -19,7 +19,10 @@ const runInContext = function (callback) {
     let result;
     try {
         result = contextLib.run({
-            principals: ["role:system.admin"],
+            user: { 
+                login: "su",
+                idProvider: "system"
+            },  
             repository: 'com.enonic.cms.' + projectData.id,
             branch: 'draft'
         }, callback);
@@ -79,7 +82,7 @@ function createContent() {
         },
         versionAttributes: {
             'content.import': {
-                user: "user:system:su",
+                user: contextLib.get().authInfo.user.key,
                 optime: new Date().toISOString()
             },
             'vacuum.skip': {}

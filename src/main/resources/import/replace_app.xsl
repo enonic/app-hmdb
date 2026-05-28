@@ -5,7 +5,8 @@
   <xsl:variable name="applicationIdDashed" select="translate($applicationId, '.', '-')"/>
   <xsl:variable name="placeholderApp" select="'com.enonic.app.hmdb'"/>
   <xsl:variable name="placeholderAppDashed" select="translate($placeholderApp, '.', '-')"/>
-
+  <xsl:param name="keepPublishFirst" select="'true'"/>
+  
   <xsl:template match="string[starts-with(text(),concat($placeholderApp,':'))]">
     <string>
       <xsl:attribute name="name">
@@ -36,5 +37,13 @@
     </xsl:copy>
   </xsl:template>
 
+  <!-- Remove publishing metadata on import -->
+  <xsl:template match="data/property-set[@name='publish']">
+    <xsl:if test="$keepPublishFirst != 'false'">
+      <xsl:copy>
+        <xsl:apply-templates select="@*|*[@name='first']"/>
+      </xsl:copy>
+    </xsl:if>
+  </xsl:template>
 
 </xsl:stylesheet>

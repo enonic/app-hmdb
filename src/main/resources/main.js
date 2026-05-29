@@ -78,7 +78,8 @@ function createContent() {
         targetNodePath: '/content',
         xslt: resolve('/import/replace_app.xsl'),
         xsltParams: {
-            applicationId: app.name
+            applicationId: app.name,
+            projectName: projectData.id
         },
         versionAttributes: {
             'content.import': {

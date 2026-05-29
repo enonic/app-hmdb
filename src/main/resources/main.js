@@ -78,7 +78,10 @@ function createContent() {
         targetNodePath: '/content',
         xslt: resolve('/import/replace_app.xsl'),
         xsltParams: {
-            applicationId: app.name
+            applicationId: app.name,
+            applicationIdPlaceholder: 'com.enonic.app.hmdb',
+            projectName: projectData.id,
+            projectNamePlaceholder: 'hmdb'
         },
         versionAttributes: {
             'content.import': {

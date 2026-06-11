@@ -1,4 +1,6 @@
 kind: "Site"
+apis:
+  - "asset"
 mappings:
   - controller: "/lib/info.js"
     match: "type:'portal:site'"

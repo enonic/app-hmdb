@@ -2,6 +2,7 @@ plugins {
     id 'maven-publish'
     id 'com.enonic.defaults' version '2.1.7'
     id 'com.enonic.xp.app'
+    id 'com.github.node-gradle.node' version '7.1.0'
 }
 
 dependencies {
@@ -15,10 +16,63 @@ dependencies {
     include xplibs.content
     include xplibs.export
     include xplibs.task
+    include "com.enonic.lib:lib-asset:2.0.0"
     include "com.enonic.lib:lib-thymeleaf:3.0.0"
 }
 
 repositories {
     mavenCentral()
     xp.enonicRepo('dev')
+}
+
+node {
+    // Download and unpack a dedicated Node.js into the workDir so the build
+    // does not depend on a globally installed Node.
+    download = true
+    version = '24.11.0'
+}
+
+processResources {
+    // The TypeScript sources are compiled to build/resources/main by tsdown
+    // (npmBuild); excluding them here keeps the raw .ts/.json out of the jar.
+    exclude '**/.gitkeep'
+    exclude '**/*.json'
+    exclude '**/*.ts'
+    exclude '**/*.tsx'
+}
+
+tasks.register('npmBuild', NpmTask) {
+    args = [
+        'run',
+        '--silent',
+        'build'
+    ]
+    dependsOn npmInstall
+    environment = [
+        'FORCE_COLOR': 'true',
+        'LOG_LEVEL_FROM_GRADLE': gradle.startParameter.logLevel.toString(),
+        'NODE_ENV': project.hasProperty('dev') || project.hasProperty('development') ? 'development' : 'production'
+    ]
+    inputs.dir 'src/main/resources'
+    outputs.dir 'build/resources/main'
+    outputs.upToDateWhen { false }
+}
+
+jar.dependsOn npmBuild
+
+tasks.register('npmCheck', NpmTask) {
+    dependsOn npmInstall
+    args = [
+        'run',
+        'check'
+    ]
+    environment = [
+        'FORCE_COLOR': 'true',
+    ]
+}
+
+check.dependsOn npmCheck
+
+tasks.withType(Copy).configureEach {
+    includeEmptyDirs = false
 }

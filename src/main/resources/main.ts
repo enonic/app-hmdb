@@ -75,8 +75,6 @@ function createContent(): void {
 }
 
 function publishRoot(): void {
-    // XP 8 publishes from the current context branch (draft, set above) to
-    // master; descendants are included by default.
     const result = contentLib.publish({
         keys: ['/hmdb'],
         includeDependencies: true

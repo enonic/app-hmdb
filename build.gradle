@@ -26,15 +26,11 @@ repositories {
 }
 
 node {
-    // Download and unpack a dedicated Node.js into the workDir so the build
-    // does not depend on a globally installed Node.
     download = true
     version = '24.11.0'
 }
 
 processResources {
-    // The TypeScript sources are compiled to build/resources/main by tsdown
-    // (npmBuild); excluding them here keeps the raw .ts/.json out of the jar.
     exclude '**/.gitkeep'
     exclude '**/*.json'
     exclude '**/*.ts'

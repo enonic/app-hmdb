@@ -14,7 +14,7 @@
     "@item-enonic-types/lib-thymeleaf": "^2.1.0",
     "@types/node": "^26.0.0",
     "concurrently": "^10.0.3",
-    "eslint": "^10.5.0",
+    "eslint": "^10.6.0",
     "glob": "^13.0.6",
     "tsdown": "^0.22.3",
     "typescript": "^5.9.3",

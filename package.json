@@ -9,7 +9,7 @@
     "@enonic-types/lib-export": "^8.0.2",
     "@enonic-types/lib-portal": "^8.0.2",
     "@enonic-types/lib-project": "^8.0.2",
-    "@enonic-types/lib-task": "^8.0.2",
+    "@enonic-types/lib-task": "^8.0.3",
     "@eslint/js": "^10.0.1",
     "@item-enonic-types/lib-thymeleaf": "^2.1.0",
     "@types/node": "^26.0.1",

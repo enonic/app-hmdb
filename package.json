@@ -13,7 +13,7 @@
     "@eslint/js": "^10.0.1",
     "@item-enonic-types/lib-thymeleaf": "^2.1.0",
     "@swc/core": "^1",
-    "@types/node": "^26.0.1",
+    "@types/node": "^26.1.1",
     "concurrently": "^10.0.3",
     "eslint": "^10.7.0",
     "glob": "^13.0.6",

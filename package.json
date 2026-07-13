@@ -17,7 +17,7 @@
     "concurrently": "^10.0.3",
     "eslint": "^10.6.0",
     "glob": "^13.0.6",
-    "tsdown": "^0.22.3",
+    "tsdown": "^0.22.7",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.63.0"
   },

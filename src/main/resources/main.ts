@@ -3,7 +3,6 @@ import * as contentLib from '/lib/xp/content';
 import * as contextLib from '/lib/xp/context';
 import * as exportLib from '/lib/xp/export';
 import * as projectLib from '/lib/xp/project';
-import * as taskLib from '/lib/xp/task';
 
 interface ProjectData {
     id: string;
@@ -104,10 +103,7 @@ function initialize(): void {
     runInContext(() => {
         const project = getProject();
         if (!project) {
-            taskLib.executeFunction({
-                description: 'Importing content',
-                func: initProject
-            });
+            initProject();
         } else {
             log.debug(`Project ${project.id} exists, skipping import`);
         }

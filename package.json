@@ -15,7 +15,7 @@
     "@swc/core": "^1",
     "@types/node": "^26.4.1",
     "concurrently": "^10.0.5",
-    "eslint": "^10.9.1",
+    "eslint": "^10.10.0",
     "glob": "^13.0.6",
     "tsdown": "^0.23.0",
     "typescript": "^5.9.3",

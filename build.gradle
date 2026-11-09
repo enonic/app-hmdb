@@ -17,7 +17,7 @@ dependencies {
     include xplibs.export
     include xplibs.task
     include "com.enonic.lib:lib-asset:2.0.1"
-    include "com.enonic.lib:lib-thymeleaf:3.0.0"
+    include "com.enonic.lib:lib-thymeleaf:3.0.1"
 
     testImplementation "com.enonic.xp:testing:${xpVersion}"
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:6.1.3'
